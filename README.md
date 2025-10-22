@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# E-Commerce - FreshMarket
 
-## Getting Started
+Un proyecto de e-commerce moderno inspirado en Mercadona, construido con las últimas tecnologías web.
 
-First, run the development server:
+## 🛠️ Stack Tecnológico
+
+- **Next.js 16.0.0** - Framework React con App Router
+- **React 19.2.0** - Biblioteca de UI
+- **TypeScript 5** - Tipado estático
+- **Tailwind CSS 4.1.15** - Framework de CSS utility-first
+- **Lucide React** - Iconos modernos y consistentes
+
+## 🚀 Características
+
+- **Header responsive** con menú hamburguesa animado para móvil
+- **Hero section** con imagen de fondo inspirado en Mercadona
+- **Diseño completamente responsive**
+- **Colores teal (verde azulado)** como esquema principal
+- **Animaciones fluidas** con CSS transitions
+- **Menú móvil** con blur background y deslizamiento lateral
+
+## 📱 Funcionalidades
+
+### Header
+- Barra de búsqueda integrada
+- Navegación por categorías
+- Carrito de compras
+- Cuenta de usuario
+- Menú hamburguesa animado para móvil
+
+### Hero Section
+- Imagen de fondo de productos frescos
+- Overlay adaptativo (negro en móvil, transparente en desktop)
+- Contenedor con efecto glassmorphism
+- CTAs para "Empezar a comprar" y "Ver ofertas"
+
+## 🏁 Comenzar
+
+Instala las dependencias:
+
+```bash
+npm install
+```
+
+Ejecuta el servidor de desarrollo:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver el resultado.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📂 Estructura del Proyecto
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/
+│   ├── layout.tsx      # Layout principal
+│   └── page.tsx        # Página home
+└── components/
+    ├── Header.tsx      # Header responsive
+    └── Hero.tsx        # Hero section
+```
 
-## Learn More
+## 🎨 Diseño
 
-To learn more about Next.js, take a look at the following resources:
+El diseño está inspirado en Mercadona pero con branding propio "FreshMarket":
+- **Colores**: Esquema teal (verde azulado) para elementos principales
+- **Tipografía**: Fuentes del sistema optimizadas
+- **Layout**: Responsive-first con breakpoints de Tailwind
+- **Iconos**: Exclusivamente Lucide React para consistencia
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Desarrollado con ❤️ usando Next.js y Tailwind CSS
