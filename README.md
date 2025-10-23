@@ -1,75 +1,103 @@
 # E-Commerce - FreshMarket
 
-Un proyecto de e-commerce moderno inspirado en Mercadona, construido con las últimas tecnologías web.
+A modern e-commerce project built with the latest web technologies, designed for fresh food and grocery shopping experiences.
 
-## 🛠️ Stack Tecnológico
+## 🛠️ Tech Stack
 
-- **Next.js 16.0.0** - Framework React con App Router
-- **React 19.2.0** - Biblioteca de UI
-- **TypeScript 5** - Tipado estático
-- **Tailwind CSS 4.1.15** - Framework de CSS utility-first
-- **Lucide React** - Iconos modernos y consistentes
+- **Next.js 16.0.0** - React framework with App Router
+- **React 19.2.0** - UI Library
+- **TypeScript 5** - Static type checking
+- **Tailwind CSS 4.1.15** - Utility-first CSS framework
+- **Lucide React** - Modern and consistent icons
 
-## 🚀 Características
+## 🚀 Features
 
-- **Header responsive** con menú hamburguesa animado para móvil
-- **Hero section** con imagen de fondo inspirado en Mercadona
-- **Diseño completamente responsive**
-- **Colores teal (verde azulado)** como esquema principal
-- **Animaciones fluidas** con CSS transitions
-- **Menú móvil** con blur background y deslizamiento lateral
+- **Responsive header** with animated hamburger menu for mobile
+- **Hero section** with fresh food background imagery
+- **Fully responsive design**
+- **Teal color scheme** as primary branding
+- **Smooth animations** with CSS transitions
+- **Mobile menu** with blur background and slide animations
+- **Information sections** showcasing products and delivery services
+- **Professional footer** with comprehensive site navigation
 
-## 📱 Funcionalidades
+## 📱 Functionality
 
 ### Header
-- Barra de búsqueda integrada
-- Navegación por categorías
-- Carrito de compras
-- Cuenta de usuario
-- Menú hamburguesa animado para móvil
+- Integrated search bar
+- Category navigation
+- Shopping cart
+- User account access
+- Animated hamburger menu for mobile
 
 ### Hero Section
-- Imagen de fondo de productos frescos
-- Overlay adaptativo (negro en móvil, transparente en desktop)
-- Contenedor con efecto glassmorphism
-- CTAs para "Empezar a comprar" y "Ver ofertas"
+- Fresh produce background imagery
+- Adaptive overlay (dark on mobile, transparent on desktop)
+- Glassmorphism effect container
+- Call-to-action buttons for shopping and offers
 
-## 🏁 Comenzar
+### Info Sections
+- Product showcase with hover effects
+- Delivery service information
+- Responsive grid layout
+- High-quality imagery
 
-Instala las dependencias:
+### Footer
+- Multi-column layout with site navigation
+- Customer service links
+- Social media integration
+- Company information
+
+## 🏁 Getting Started
+
+Install dependencies:
 
 ```bash
 npm install
 ```
 
-Ejecuta el servidor de desarrollo:
+Run the development server:
 
 ```bash
 npm run dev
 ```
 
-Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver el resultado.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-## 📂 Estructura del Proyecto
+## 📂 Project Structure
 
 ```
 src/
 ├── app/
-│   ├── layout.tsx      # Layout principal
-│   └── page.tsx        # Página home
-└── components/
-    ├── Header.tsx      # Header responsive
-    └── Hero.tsx        # Hero section
+│   ├── layout.tsx      # Main layout
+│   ├── page.tsx        # Home page
+│   └── globals.css     # Global styles
+├── components/
+│   ├── Header.tsx      # Responsive header
+│   ├── Hero.tsx        # Hero section
+│   ├── InfoSections.tsx # Product info sections
+│   └── Footer.tsx      # Site footer
+└── types/
+    └── index.ts        # TypeScript definitions
 ```
 
-## 🎨 Diseño
+## 🎨 Design
 
-El diseño está inspirado en Mercadona pero con branding propio "FreshMarket":
-- **Colores**: Esquema teal (verde azulado) para elementos principales
-- **Tipografía**: Fuentes del sistema optimizadas
-- **Layout**: Responsive-first con breakpoints de Tailwind
-- **Iconos**: Exclusivamente Lucide React para consistencia
+FreshMarket features a clean, modern design optimized for grocery e-commerce:
+- **Colors**: Teal color scheme for primary elements and branding
+- **Typography**: Inter and Poppins fonts for professional appearance
+- **Layout**: Mobile-first responsive design with Tailwind breakpoints
+- **Icons**: Lucide React icons for visual consistency
+- **Images**: Optimized with Next.js Image component
+
+## 🌟 Key Design Principles
+
+- **Mobile-first responsive design**
+- **Accessibility-focused components**
+- **Performance optimized with Next.js**
+- **Clean, modern aesthetic**
+- **Intuitive user experience**
 
 ---
 
-Desarrollado con ❤️ usando Next.js y Tailwind CSS
+Built with ❤️ using Next.js and Tailwind CSS
