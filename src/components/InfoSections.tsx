@@ -11,7 +11,7 @@ export default function InfoSections() {
           {/* Primera sección - Productos Frescos */}
           <div className="grid lg:grid-cols-2 gap-12 items-center hover:bg-teal-50 transition-colors duration-300 rounded-2xl p-12 -m-12">
             <div className="order-2 lg:order-1">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 font-poppins">
                 Productos frescos seleccionados para ti
               </h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
@@ -46,7 +46,7 @@ export default function InfoSections() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                   <div className="absolute bottom-6 left-6 text-white">
-                    <h3 className="text-2xl font-bold mb-2">
+                    <h3 className="text-2xl font-bold mb-2 font-poppins">
                       Atención personalizada
                     </h3>
                     <p className="text-white/90">
@@ -72,7 +72,7 @@ export default function InfoSections() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                   <div className="absolute bottom-6 left-6 text-white">
-                    <h3 className="text-2xl font-bold mb-2">
+                    <h3 className="text-2xl font-bold mb-2 font-poppins">
                       Entrega segura
                     </h3>
                     <p className="text-white/90">
@@ -83,7 +83,7 @@ export default function InfoSections() {
               </div>
             </div>
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 font-poppins">
                 Recibe tu compra cuando más te convenga
               </h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">

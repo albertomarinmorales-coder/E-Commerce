@@ -14,7 +14,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-black/40 md:bg-transparent"></div>
         <div className="relative z-10 flex items-center justify-center md:justify-end min-h-[600px] px-8 lg:px-16">
         <div className="text-center md:text-left max-w-md lg:max-w-lg">
-            <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight text-justify">
+            <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight text-justify font-poppins">
                 Empieza tu compra
                 <br />
                 en FreshMarket
