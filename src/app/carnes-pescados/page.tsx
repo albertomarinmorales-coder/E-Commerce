@@ -74,7 +74,7 @@ export default function CarnesPescadosPage() {
         </div>
       </div>
 
-      <div className="bg-gradient-to-r from-red-50 to-pink-50 border-b border-red-100">
+      <div className="bg-gradient-to-right from-red-50 to-pink-50 border-b border-red-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="flex items-center">
             <div className="bg-white shadow-lg p-6 rounded-2xl mr-6 border border-red-100">

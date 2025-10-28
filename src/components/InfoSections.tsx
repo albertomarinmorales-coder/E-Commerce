@@ -8,7 +8,6 @@ export default function InfoSections() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="space-y-16">
           
-          {/* Primera sección - Productos Frescos */}
           <div className="grid lg:grid-cols-2 gap-12 items-center hover:bg-teal-50 transition-colors duration-300 rounded-2xl p-12 -m-12">
             <div className="order-2 lg:order-1">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 font-poppins">
@@ -58,7 +57,6 @@ export default function InfoSections() {
             </div>
           </div>
 
-          {/* Segunda sección - Entrega Rápida */}
           <div className="grid lg:grid-cols-2 gap-12 items-center hover:bg-teal-50 transition-colors duration-300 rounded-2xl p-12 -m-12">
             <div>
               <div className="relative">

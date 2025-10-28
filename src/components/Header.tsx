@@ -11,7 +11,6 @@ export default function Header() {
 
   const openMenu = () => {
     setIsMobileMenuOpen(true);
-    // Usar setTimeout para que la animación se ejecute después de que el componente se monte
     setTimeout(() => {
       setIsAnimating(true);
     }, 10);
@@ -21,22 +20,19 @@ export default function Header() {
     setIsAnimating(false);
     setTimeout(() => {
       setIsMobileMenuOpen(false);
-    }, 300); // Tiempo de la animación
+    }, 300);
   };
 
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
-      {/* Main header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
           <Link href="/" className="flex items-center">
             <div className="text-xl md:text-2xl font-bold text-teal-600">
               FreshMarket
             </div>
           </Link>
 
-          {/* Search bar - Hidden on mobile */}
           <div className="hidden md:flex flex-1 max-w-2xl mx-8">
             <div className="relative w-full">
               <input
@@ -52,9 +48,7 @@ export default function Header() {
             </div>
           </div>
 
-          {/* Right side icons */}
           <div className="flex items-center space-x-4">
-            {/* Shopping cart - Hidden on mobile */}
             <Link href="/cart" className="hidden md:flex flex-col items-center text-gray-600 hover:text-teal-600 relative">
               <ShoppingCart className="h-6 w-6" />
               <span className="text-xs mt-1">Cesta</span>
@@ -63,7 +57,6 @@ export default function Header() {
               </span>
             </Link>
 
-            {/* Mobile menu button */}
             <button 
               className="md:hidden p-2 text-gray-600 hover:text-teal-600"
               onClick={() => isMobileMenuOpen ? closeMenu() : openMenu()}
@@ -74,7 +67,6 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Navigation menu - Desktop */}
       <div className="hidden md:block bg-gray-50 border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-center space-x-8 py-3">
@@ -103,7 +95,6 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile menu overlay */}
       {isMobileMenuOpen && (
         <div 
           className={`md:hidden fixed inset-0 z-50 transition-all duration-300 ${
@@ -134,7 +125,6 @@ export default function Header() {
             </div>
             
             <div className="p-4 space-y-4">
-              {/* Search bar for mobile */}
               <div className="relative">
                 <input
                   type="text"
@@ -148,7 +138,6 @@ export default function Header() {
                 </button>
               </div>
 
-              {/* User account link for mobile */}
               <Link 
                 href="/account" 
                 className="flex items-center space-x-3 text-gray-700 hover:text-teal-600 py-2"
@@ -158,7 +147,6 @@ export default function Header() {
                 <span>Mi cuenta</span>
               </Link>
 
-              {/* Shopping cart link for mobile */}
               <Link 
                 href="/cart" 
                 className="flex items-center space-x-3 text-gray-700 hover:text-teal-600 py-2 relative"
@@ -175,7 +163,6 @@ export default function Header() {
               
               <hr className="border-gray-200" />
               
-              {/* Navigation links */}
               <div className="space-y-3">
                 <Link 
                   href="/categorias" 

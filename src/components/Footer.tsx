@@ -6,11 +6,9 @@ import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Youtube } from 'luci
 export default function Footer() {
   return (
     <footer className="bg-teal-800 text-white">
-      {/* Sección principal del footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           
-          {/* Cliente */}
           <div>
             <h3 className="text-lg font-semibold mb-6 text-teal-200">Cliente</h3>
             <ul className="space-y-3">
@@ -42,7 +40,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Trabajador */}
           <div>
             <h3 className="text-lg font-semibold mb-6 text-teal-200">Trabajador</h3>
             <ul className="space-y-3">
@@ -69,7 +66,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Proveedor */}
           <div>
             <h3 className="text-lg font-semibold mb-6 text-teal-200">Proveedor</h3>
             <ul className="space-y-3">
@@ -96,7 +92,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Sociedad */}
           <div>
             <h3 className="text-lg font-semibold mb-6 text-teal-200">Sociedad</h3>
             <ul className="space-y-3">
@@ -129,17 +124,15 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Sección de contacto */}
         <div className="border-t border-teal-700 mt-12 pt-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             
-            {/* Información de contacto */}
             <div>
               <h3 className="text-lg font-semibold mb-6 text-teal-200">Contacto</h3>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <Phone className="h-5 w-5 text-teal-200" />
-                  <span className="text-teal-100">900 500 220 - Atención al cliente</span>
+                  <span className="text-teal-100">958 123 123 - Atención al cliente</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="h-5 w-5 text-teal-200" />
@@ -147,12 +140,11 @@ export default function Footer() {
                 </div>
                 <div className="flex items-center space-x-3">
                   <MapPin className="h-5 w-5 text-teal-200" />
-                  <span className="text-teal-100">Valencia, Barcelona, Madrid y otras ciudades</span>
+                  <span className="text-teal-100">Granada</span>
                 </div>
               </div>
             </div>
 
-            {/* Redes sociales */}
             <div>
               <h3 className="text-lg font-semibold mb-6 text-teal-200">Síguenos</h3>
               <div className="flex space-x-4">
@@ -190,19 +182,16 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Footer bottom */}
       <div className="bg-teal-900 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             
-            {/* Copyright */}
             <div className="text-center md:text-left">
               <p className="text-teal-200 text-sm">
                 © 2025 FreshMarket S.A. A12345678. Todos los derechos reservados.
               </p>
             </div>
 
-            {/* Enlaces legales */}
             <div className="flex flex-wrap justify-center md:justify-end space-x-6 text-sm">
               <Link href="/accesibilidad" className="text-teal-200 hover:text-white transition-colors duration-200">
                 Accesibilidad
