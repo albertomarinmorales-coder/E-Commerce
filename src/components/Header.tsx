@@ -88,9 +88,6 @@ export default function Header() {
             <Link href="/bebidas" className="text-gray-700 hover:text-teal-600 font-medium transition-colors">
               Bebidas
             </Link>
-            <Link href="/ofertas" className="text-red-600 hover:text-red-700 font-medium transition-colors">
-              Ofertas
-            </Link>
           </div>
         </div>
       </div>
@@ -205,13 +202,6 @@ export default function Header() {
                   onClick={closeMenu}
                 >
                   Bebidas
-                </Link>
-                <Link 
-                  href="/ofertas" 
-                  className="block text-red-600 hover:text-red-700 font-medium py-2"
-                  onClick={closeMenu}
-                >
-                  Ofertas
                 </Link>
               </div>
             </div>

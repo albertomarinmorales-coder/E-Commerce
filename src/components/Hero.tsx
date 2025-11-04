@@ -29,12 +29,6 @@ export default function Hero() {
                 >
                     Empezar a comprar
                 </Link>
-                <Link 
-                    href="/ofertas"
-                    className="bg-white/90 hover:bg-white text-gray-900 font-semibold py-4 px-8 rounded-lg text-center transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl border-2 border-white/50 hover:border-white"
-                >
-                    Ver ofertas
-                </Link>
             </div>
         </div>
     </div>

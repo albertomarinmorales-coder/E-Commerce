@@ -36,13 +36,6 @@ export default function CategoriasPage() {
       description: 'Refrescos, zumos, agua y más bebidas',
       href: '/bebidas',
       productCount: 92
-    },
-    {
-      id: 'ofertas',
-      name: 'Ofertas',
-      description: 'Los mejores precios y descuentos especiales',
-      href: '/ofertas',
-      productCount: 67
     }
   ];
 

@@ -93,22 +93,22 @@ export default function FrutasVerdurasPage() {
       </div>
 
       {/* Category header */}
-      <div className="bg-gradient-to-right from-green-50 to-emerald-50 border-b border-green-100">
+      <div className="bg-teal-600 border-b border-teal-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="flex items-center">
             <div>
-              <h1 className="text-4xl font-bold text-gray-900 font-poppins mb-2">
+              <h1 className="text-4xl font-bold text-white font-poppins mb-2">
                 Frutas y Verduras
               </h1>
-              <p className="text-lg text-gray-600 mb-2">
+              <p className="text-lg text-teal-100 mb-2">
                 Productos frescos del campo, seleccionados diariamente
               </p>
               <div className="flex items-center space-x-4 text-sm">
-                <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full font-medium">
+                <span className="bg-teal-500 text-white px-3 py-1 rounded-full font-medium">
                   {productos.length} productos disponibles
                 </span>
-                <span className="text-green-600">100% Frescos</span>
-                <span className="text-green-600">Envío mismo día</span>
+                <span className="text-teal-100">100% Frescos</span>
+                <span className="text-teal-100">Envío mismo día</span>
               </div>
             </div>
           </div>
@@ -119,31 +119,32 @@ export default function FrutasVerdurasPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {productos.map((producto) => (
-            <div key={producto.id} className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-              <div className="relative">
+            <div key={producto.id} className="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 group hover:-translate-y-1 hover:scale-[1.02] transform-gpu">
+              <div className="relative overflow-hidden rounded-t-lg">
                 <img
                   src={producto.image}
                   alt={producto.name}
-                  className="w-full h-48 object-cover rounded-t-lg"
+                  className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
                 />
                 {producto.isOffer && (
-                  <div className="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">
+                  <div className="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded animate-pulse">
                     OFERTA
                   </div>
                 )}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300"></div>
               </div>
               
               <div className="p-4">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-teal-700 transition-colors">
                   {producto.name}
                 </h3>
                 
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex flex-col">
-                    <span className="text-xl font-bold text-teal-600">
+                    <span className="text-xl font-bold text-teal-600 group-hover:text-teal-700 transition-colors">
                       €{producto.price.toFixed(2)}
                     </span>
-                    <span className="text-sm text-gray-500">
+                    <span className="text-sm text-gray-500 group-hover:text-gray-600 transition-colors">
                       por {producto.unit}
                     </span>
                     {producto.isOffer && producto.originalPrice && (
@@ -155,11 +156,11 @@ export default function FrutasVerdurasPage() {
                 </div>
 
                 <div className="flex items-center justify-between">
-                  <span className={`text-sm ${producto.stock > 10 ? 'text-green-600' : 'text-orange-600'}`}>
+                  <span className={`text-sm transition-colors ${producto.stock > 10 ? 'text-green-600 group-hover:text-green-700' : 'text-orange-600 group-hover:text-orange-700'}`}>
                     {producto.stock > 10 ? 'En stock' : `Quedan ${producto.stock}`}
                   </span>
                   
-                  <button className="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">
+                  <button className="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95">
                     Añadir
                   </button>
                 </div>
