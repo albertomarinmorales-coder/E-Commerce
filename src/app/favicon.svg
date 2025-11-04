@@ -1,0 +1,17 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fondo circular teal -->
+  <circle cx="8" cy="8" r="8" fill="#0d9488"/>
+  
+  <!-- Carrito de compras simplificado -->
+  <g fill="white" stroke="white" stroke-width="0.8">
+    <!-- Cuerpo del carrito -->
+    <path d="M3 4h1.5l1.8 3.8a0.5 0.5 0 0 0 .45.3h4a0.5 0.5 0 0 0 .45-.3L12.5 5H5"/>
+    
+    <!-- Ruedas del carrito -->
+    <circle cx="6.5" cy="11" r="0.8"/>
+    <circle cx="10.5" cy="11" r="0.8"/>
+    
+    <!-- Mango del carrito -->
+    <path d="M3 4L2.5 2H2" stroke-linecap="round"/>
+  </g>
+</svg>

@@ -20,7 +20,25 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "FreshMarket - Tu supermercado online",
-  description: "Compra productos frescos y de calidad desde casa",
+  description: "Compra productos frescos y de calidad desde casa. Frutas, verduras, carnes, lácteos y más con entrega a domicilio.",
+  keywords: "supermercado online, compra online, productos frescos, entrega a domicilio, frutas, verduras, carnes, lácteos",
+  authors: [{ name: "FreshMarket" }],
+  creator: "FreshMarket",
+  publisher: "FreshMarket",
+  openGraph: {
+    title: "FreshMarket - Tu supermercado online",
+    description: "Compra productos frescos y de calidad desde casa",
+    type: "website",
+    locale: "es_ES",
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" }
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
