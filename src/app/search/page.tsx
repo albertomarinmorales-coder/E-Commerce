@@ -123,11 +123,11 @@ export default function SearchPage() {
                   key={producto.id} 
                   className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 group transform hover:scale-105"
                 >
-                  <div className="relative overflow-hidden">
+                  <div className="relative overflow-hidden bg-gray-50">
                     <img
                       src={producto.image}
                       alt={producto.name}
-                      className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                      className="w-full h-48 object-contain transition-transform duration-300 group-hover:scale-110 p-2"
                     />
                     {producto.isOffer && (
                       <div className="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold">

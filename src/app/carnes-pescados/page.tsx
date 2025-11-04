@@ -104,11 +104,11 @@ export default function CarnesPescadosPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {productos.map((producto) => (
             <div key={producto.id} className="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 group hover:-translate-y-1 hover:scale-[1.02] transform-gpu">
-              <div className="relative overflow-hidden rounded-t-lg">
+              <div className="relative overflow-hidden rounded-t-lg bg-gray-50">
                 <img
                   src={producto.image}
                   alt={producto.name}
-                  className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="w-full h-48 object-contain transition-transform duration-300 group-hover:scale-110 p-2"
                 />
                 {producto.isOffer && (
                   <div className="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded animate-pulse">
