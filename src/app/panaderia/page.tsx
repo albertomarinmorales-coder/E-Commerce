@@ -74,19 +74,6 @@ export default function PanaderiaPage() {
                 Volver a categorías
               </Link>
             </div>
-            <div className="flex items-center space-x-4">
-              <button className="flex items-center text-gray-600 hover:text-teal-600">
-                Filtros
-              </button>
-              <div className="flex border border-gray-300 rounded-md">
-                <button className="p-2 border-r border-gray-300 bg-teal-50 text-teal-600">
-                  Cuadrícula
-                </button>
-                <button className="p-2 text-gray-600 hover:text-teal-600">
-                  Lista
-                </button>
-              </div>
-            </div>
           </div>
         </div>
       </div>

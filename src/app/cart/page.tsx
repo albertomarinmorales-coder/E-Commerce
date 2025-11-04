@@ -97,11 +97,11 @@ export default function CartPage() {
                         
                         <div className="flex items-center mt-2">
                           <span className="text-lg font-bold text-teal-600">
-                            €{item.product.price.toFixed(2)}
+                            {item.product.price.toFixed(2)}€
                           </span>
                           {item.product.originalPrice && (
                             <span className="text-sm text-gray-400 line-through ml-2">
-                              €{item.product.originalPrice.toFixed(2)}
+                              {item.product.originalPrice.toFixed(2)}€
                             </span>
                           )}
                         </div>
@@ -130,7 +130,7 @@ export default function CartPage() {
                         {/* Item total */}
                         <div className="text-right">
                           <p className="text-lg font-bold text-gray-900">
-                            €{(item.product.price * item.quantity).toFixed(2)}
+                            {(item.product.price * item.quantity).toFixed(2)}€
                           </p>
                         </div>
                         
@@ -159,19 +159,19 @@ export default function CartPage() {
               <div className="space-y-3">
                 <div className="flex justify-between">
                   <span className="text-gray-600">Subtotal</span>
-                  <span className="font-medium text-black">€{getTotalPrice().toFixed(2)}</span>
+                  <span className="font-medium text-black">{getTotalPrice().toFixed(2)}€</span>
                 </div>
                 
                 <div className="flex justify-between">
                   <span className="text-gray-600">Gastos de envío</span>
-                  <span className="font-medium text-black">€{shipping.toFixed(2)}</span>
+                  <span className="font-medium text-black">{shipping.toFixed(2)}€</span>
                 </div>
                 
                 <div className="border-t pt-3">
                   <div className="flex justify-between">
-                    <span className="text-lg font-semibold">Total</span>
-                    <span className="text-lg font-bold text-black">
-                      €{total.toFixed(2)}
+                    <span className="text-xl font-bold text-gray-900">Total</span>
+                    <span className="text-xl text-gray-900">
+                      {total.toFixed(2)}€
                     </span>
                   </div>
                 </div>
@@ -195,7 +195,7 @@ export default function CartPage() {
               
               <div className="mt-6 text-center">
                 <p className="text-sm text-gray-500">
-                  Envío gratis en pedidos superiores a €50
+                  Envío gratis en pedidos superiores a 50€
                 </p>
               </div>
             </div>
