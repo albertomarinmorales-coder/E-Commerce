@@ -43,7 +43,7 @@ export default function InfoSections() {
                     height={400}
                     className="w-full h-80 object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent"></div>
                   <div className="absolute bottom-6 left-6 text-white">
                     <h3 className="text-2xl font-bold mb-2 font-poppins">
                       Atención personalizada
@@ -68,7 +68,7 @@ export default function InfoSections() {
                     height={400}
                     className="w-full h-80 object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent"></div>
                   <div className="absolute bottom-6 left-6 text-white">
                     <h3 className="text-2xl font-bold mb-2 font-poppins">
                       Entrega segura

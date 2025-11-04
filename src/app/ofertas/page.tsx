@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { ArrowLeft, Filter, Grid, List, Percent } from 'lucide-react';
 
 export default function OfertasPage() {
   const ofertas = [
@@ -81,21 +80,19 @@ export default function OfertasPage() {
                 href="/categorias"
                 className="flex items-center text-gray-600 hover:text-teal-600"
               >
-                <ArrowLeft className="h-5 w-5 mr-2" />
                 Volver a categorías
               </Link>
             </div>
             <div className="flex items-center space-x-4">
               <button className="flex items-center text-gray-600 hover:text-teal-600">
-                <Filter className="h-5 w-5 mr-2" />
                 Filtros
               </button>
               <div className="flex border border-gray-300 rounded-md">
                 <button className="p-2 border-r border-gray-300 bg-teal-50 text-teal-600">
-                  <Grid className="h-4 w-4" />
+                  Cuadrícula
                 </button>
                 <button className="p-2 text-gray-600 hover:text-teal-600">
-                  <List className="h-4 w-4" />
+                  Lista
                 </button>
               </div>
             </div>
@@ -134,15 +131,13 @@ export default function OfertasPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
             <div className="flex items-center justify-center space-x-2">
-              <Percent className="h-5 w-5 text-orange-500" />
               <span className="text-gray-700">Descuentos hasta 25%</span>
             </div>
             <div className="flex items-center justify-center space-x-2">
-              <span className="text-orange-500 text-lg">🏷️</span>
               <span className="text-gray-700">{ofertas.length} ofertas activas</span>
             </div>
             <div className="flex items-center justify-center space-x-2">
-              <span className="text-gray-700">⏰ Ofertas limitadas</span>
+              <span className="text-gray-700">Ofertas limitadas</span>
             </div>
           </div>
         </div>

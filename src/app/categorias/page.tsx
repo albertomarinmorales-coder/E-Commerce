@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { ShoppingBag } from 'lucide-react';
 
 export default function CategoriasPage() {
   const categorias = [
@@ -74,21 +73,20 @@ export default function CategoriasPage() {
                     href={categoria.href}
                     className="group block h-full relative"
                   >
-                    <div className="bg-white rounded-2xl shadow-xl group-hover:shadow-2xl transition-all duration-300 group-hover:relative group-hover:-translate-y-2 group-hover:z-10 p-8 border border-teal-100 overflow-hidden h-full flex flex-col">
+                    <div className="bg-white rounded-2xl shadow-xl group-hover:shadow-2xl transition-all duration-300 p-8 border border-teal-100 overflow-hidden h-full flex flex-col">
                       {/* Subtle teal gradient background */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-teal-50 via-white to-teal-50 opacity-80 group-hover:opacity-100 transition-opacity"></div>
+                      <div className="absolute inset-0 bg-linear-to-br from-teal-50 via-white to-teal-50 opacity-80 group-hover:opacity-100 transition-opacity"></div>
                       
                       <div className="relative z-10 flex flex-col h-full">
                         {/* Clean header section */}
                         <div className="mb-6">
-                          <div className="w-full h-1 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full mb-4 group-hover:h-2 transition-all duration-300"></div>
+                          <div className="w-full h-1 bg-linear-to-r from-teal-500 to-emerald-500 rounded-full mb-4 transition-all duration-300"></div>
                           <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-teal-700 transition-colors">
                             {categoria.name}
                           </h3>
                         </div>
                         
-                        {/* Description with consistent height */}
-                        <p className="text-gray-600 mb-6 leading-relaxed flex-1 min-h-[3rem]">
+                        <p className="text-gray-600 mb-6 leading-relaxed flex-1 min-h-12">
                           {categoria.description}
                         </p>
                         
@@ -97,9 +95,9 @@ export default function CategoriasPage() {
                           <span className="text-sm text-teal-600 bg-teal-50 px-4 py-2 rounded-full font-medium border border-teal-200">
                             {categoria.productCount} productos
                           </span>
-                          <span className="text-teal-600 group-hover:text-teal-700 font-semibold group-hover:translate-x-1 transition-all flex items-center">
+                          <span className="text-teal-600 group-hover:text-teal-700 font-semibold transition-all flex items-center">
                             Explorar
-                            <span className="ml-2 group-hover:ml-3 transition-all">→</span>
+                            <span className="ml-2 transition-all">→</span>
                           </span>
                         </div>
                       </div>

@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { ShoppingCart, ArrowLeft, ArrowRight, MapPin, Clock, CreditCard } from 'lucide-react';
 
 export default function CheckoutPage() {
   return (
@@ -12,7 +11,6 @@ export default function CheckoutPage() {
               href="/cart"
               className="flex items-center text-gray-600 hover:text-teal-600"
             >
-              <ArrowLeft className="h-5 w-5 mr-2" />
               Volver al carrito
             </Link>
             
@@ -73,7 +71,6 @@ export default function CheckoutPage() {
               {/* Delivery address */}
               <div className="bg-white rounded-lg shadow-md p-6">
                 <div className="flex items-center mb-6">
-                  <MapPin className="h-6 w-6 text-teal-600 mr-3" />
                   <h2 className="text-xl font-semibold text-gray-900">
                     Dirección de entrega
                   </h2>
@@ -140,7 +137,6 @@ export default function CheckoutPage() {
               {/* Delivery time */}
               <div className="bg-white rounded-lg shadow-md p-6">
                 <div className="flex items-center mb-6">
-                  <Clock className="h-6 w-6 text-teal-600 mr-3" />
                   <h2 className="text-xl font-semibold text-gray-900">
                     Horario de entrega
                   </h2>
@@ -186,7 +182,6 @@ export default function CheckoutPage() {
               {/* Payment method */}
               <div className="bg-white rounded-lg shadow-md p-6">
                 <div className="flex items-center mb-6">
-                  <CreditCard className="h-6 w-6 text-teal-600 mr-3" />
                   <h2 className="text-xl font-semibold text-gray-900">
                     Método de pago
                   </h2>
@@ -268,7 +263,6 @@ export default function CheckoutPage() {
                   className="w-full bg-teal-600 hover:bg-teal-700 text-white py-3 px-4 rounded-lg font-medium text-center transition-colors flex items-center justify-center"
                 >
                   Continuar al pago
-                  <ArrowRight className="h-5 w-5 ml-2" />
                 </Link>
                 
                 <p className="text-xs text-gray-500 text-center">

@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Youtube } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -131,15 +130,12 @@ export default function Footer() {
               <h3 className="text-lg font-semibold mb-6 text-teal-200">Contacto</h3>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
-                  <Phone className="h-5 w-5 text-teal-200" />
                   <span className="text-teal-100">958 123 123 - Atención al cliente</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Mail className="h-5 w-5 text-teal-200" />
                   <span className="text-teal-100">info@freshmarket.es</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <MapPin className="h-5 w-5 text-teal-200" />
                   <span className="text-teal-100">Granada</span>
                 </div>
               </div>
@@ -153,28 +149,28 @@ export default function Footer() {
                   className="bg-teal-700 hover:bg-teal-500 p-3 rounded-full transition-colors duration-200"
                   aria-label="Facebook"
                 >
-                  <Facebook className="h-5 w-5" />
+                  Facebook
                 </Link>
                 <Link 
-                  href="https://twitter.com/freshmarket" 
+                  href="https://twitter.com/freshmarket"
                   className="bg-teal-700 hover:bg-teal-500 p-3 rounded-full transition-colors duration-200"
                   aria-label="Twitter"
                 >
-                  <Twitter className="h-5 w-5" />
+                  Twitter
                 </Link>
                 <Link 
-                  href="https://instagram.com/freshmarket" 
+                  href="https://instagram.com/freshmarket"
                   className="bg-teal-700 hover:bg-teal-500 p-3 rounded-full transition-colors duration-200"
                   aria-label="Instagram"
                 >
-                  <Instagram className="h-5 w-5" />
+                  Instagram
                 </Link>
                 <Link 
-                  href="https://youtube.com/freshmarket" 
+                  href="https://youtube.com/freshmarket"
                   className="bg-teal-700 hover:bg-teal-500 p-3 rounded-full transition-colors duration-200"
                   aria-label="YouTube"
                 >
-                  <Youtube className="h-5 w-5" />
+                  YouTube
                 </Link>
               </div>
             </div>

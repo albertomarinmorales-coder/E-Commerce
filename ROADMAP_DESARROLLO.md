@@ -1,15 +1,6 @@
 # 🚀 ROADMAP COMPLETO - FRESHMARKET E-COMMERCE
 
 
-## PASO ULTRA IMPORTANTE A ARREGLAR ANTES DE NADA:
-** En /categorias, las cards:
-- Cuando se hace hover a alguna, empuja a las demas y al footer y resto de elementos
-- Tambien hace que la card que tiene al lado, se haga un poco mas alta
-
-Arreglalo ** 
-
-
-
 ## 📋 ANÁLISIS ACTUAL
 **Estado:** 15% completitud - Solo diseño y estructura básica
 **Funcionalidad real:** 0% - Sin backend, sin productos, sin carrito funcional

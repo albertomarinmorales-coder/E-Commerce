@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { ArrowLeft, Filter, Grid, List } from 'lucide-react';
 
 export default function FrutasVerdurasPage() {
   // Productos mock para mostrar
@@ -73,21 +72,19 @@ export default function FrutasVerdurasPage() {
                 href="/categorias"
                 className="flex items-center text-gray-600 hover:text-teal-600"
               >
-                <ArrowLeft className="h-5 w-5 mr-2" />
                 Volver a categorías
               </Link>
             </div>
             <div className="flex items-center space-x-4">
               <button className="flex items-center text-gray-600 hover:text-teal-600">
-                <Filter className="h-5 w-5 mr-2" />
                 Filtros
               </button>
               <div className="flex border border-gray-300 rounded-md">
                 <button className="p-2 border-r border-gray-300 bg-teal-50 text-teal-600">
-                  <Grid className="h-4 w-4" />
+                  Cuadrícula
                 </button>
                 <button className="p-2 text-gray-600 hover:text-teal-600">
-                  <List className="h-4 w-4" />
+                  Lista
                 </button>
               </div>
             </div>
@@ -99,9 +96,6 @@ export default function FrutasVerdurasPage() {
       <div className="bg-gradient-to-r from-green-50 to-emerald-50 border-b border-green-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="flex items-center">
-            <div className="bg-white shadow-lg p-6 rounded-2xl mr-6 border border-green-100">
-              <span className="text-5xl">🥬</span>
-            </div>
             <div>
               <h1 className="text-4xl font-bold text-gray-900 font-poppins mb-2">
                 Frutas y Verduras
@@ -113,8 +107,8 @@ export default function FrutasVerdurasPage() {
                 <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full font-medium">
                   {productos.length} productos disponibles
                 </span>
-                <span className="text-green-600">🌱 100% Frescos</span>
-                <span className="text-green-600">🚚 Envío mismo día</span>
+                <span className="text-green-600">100% Frescos</span>
+                <span className="text-green-600">Envío mismo día</span>
               </div>
             </div>
           </div>

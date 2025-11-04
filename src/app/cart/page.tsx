@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { ShoppingCart, Minus, Plus, Trash2, ArrowLeft, ArrowRight } from 'lucide-react';
 
 export default function CartPage() {
   // Productos mock en el carrito
@@ -49,7 +48,6 @@ export default function CartPage() {
               href="/"
               className="flex items-center text-gray-600 hover:text-teal-600"
             >
-              <ArrowLeft className="h-5 w-5 mr-2" />
               Seguir comprando
             </Link>
           </div>
@@ -123,13 +121,13 @@ export default function CartPage() {
                         {/* Quantity controls */}
                         <div className="flex items-center space-x-2">
                           <button className="p-1 rounded-full border border-gray-300 hover:bg-gray-50">
-                            <Minus className="h-4 w-4" />
+                            -
                           </button>
                           <span className="w-12 text-center font-medium">
                             {item.quantity}
                           </span>
                           <button className="p-1 rounded-full border border-gray-300 hover:bg-gray-50">
-                            <Plus className="h-4 w-4" />
+                            +
                           </button>
                         </div>
                         
@@ -142,7 +140,7 @@ export default function CartPage() {
                         
                         {/* Remove button */}
                         <button className="text-red-500 hover:text-red-700">
-                          <Trash2 className="h-5 w-5" />
+                          Eliminar
                         </button>
                       </div>
                     </div>
@@ -186,7 +184,6 @@ export default function CartPage() {
                   className="w-full bg-teal-600 hover:bg-teal-700 text-white py-3 px-4 rounded-lg font-medium text-center transition-colors flex items-center justify-center"
                 >
                   Finalizar compra
-                  <ArrowRight className="h-5 w-5 ml-2" />
                 </Link>
                 
                 <Link

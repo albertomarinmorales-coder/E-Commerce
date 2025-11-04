@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { ArrowLeft, Filter, Grid, List } from 'lucide-react';
 
 export default function BebidasPage() {
   const productos = [
@@ -52,21 +51,19 @@ export default function BebidasPage() {
                 href="/categorias"
                 className="flex items-center text-gray-600 hover:text-teal-600"
               >
-                <ArrowLeft className="h-5 w-5 mr-2" />
                 Volver a categorías
               </Link>
             </div>
             <div className="flex items-center space-x-4">
               <button className="flex items-center text-gray-600 hover:text-teal-600">
-                <Filter className="h-5 w-5 mr-2" />
                 Filtros
               </button>
               <div className="flex border border-gray-300 rounded-md">
                 <button className="p-2 border-r border-gray-300 bg-teal-50 text-teal-600">
-                  <Grid className="h-4 w-4" />
+                  Cuadrícula
                 </button>
                 <button className="p-2 text-gray-600 hover:text-teal-600">
-                  <List className="h-4 w-4" />
+                  Lista
                 </button>
               </div>
             </div>
@@ -74,12 +71,9 @@ export default function BebidasPage() {
         </div>
       </div>
 
-      <div className="bg-gradient-to-r from-purple-50 to-violet-50 border-b border-purple-100">
+      <div className="bg-linear-to-r from-purple-50 to-violet-50 border-b border-purple-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="flex items-center">
-            <div className="bg-white shadow-lg p-6 rounded-2xl mr-6 border border-purple-100">
-              <span className="text-5xl">🥤</span>
-            </div>
             <div>
               <h1 className="text-4xl font-bold text-gray-900 font-poppins mb-2">
                 Bebidas
@@ -91,8 +85,8 @@ export default function BebidasPage() {
                 <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full font-medium">
                   {productos.length} productos disponibles
                 </span>
-                <span className="text-purple-600">🧊 Siempre frías</span>
-                <span className="text-purple-600">🥤 Gran variedad</span>
+                <span className="text-purple-600">Siempre frías</span>
+                <span className="text-purple-600">Gran variedad</span>
               </div>
             </div>
           </div>
