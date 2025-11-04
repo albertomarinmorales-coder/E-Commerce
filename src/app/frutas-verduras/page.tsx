@@ -1,6 +1,26 @@
+'use client';
+
 import Link from 'next/link';
+import { useCart } from '@/contexts/CartContext';
 
 export default function FrutasVerdurasPage() {
+  const { addItem } = useCart();
+  
+  // Función para convertir producto local a Product interface
+  const convertToProduct = (producto: any) => ({
+    id: producto.id.toString(),
+    name: producto.name,
+    description: `${producto.name} - Productos frescos`,
+    price: producto.price,
+    originalPrice: producto.originalPrice,
+    image: producto.image,
+    category: 'Frutas y Verduras',
+    brand: 'FreshMarket',
+    stock: producto.stock,
+    unit: producto.unit,
+    tags: ['fresco', 'natural']
+  });
+  
   // Productos mock para mostrar
   const productos = [
     {
@@ -160,7 +180,10 @@ export default function FrutasVerdurasPage() {
                     {producto.stock > 10 ? 'En stock' : `Quedan ${producto.stock}`}
                   </span>
                   
-                  <button className="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95">
+                  <button 
+                    onClick={() => addItem(convertToProduct(producto))}
+                    className="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95"
+                  >
                     Añadir
                   </button>
                 </div>

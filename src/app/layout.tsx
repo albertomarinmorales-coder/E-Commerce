@@ -3,6 +3,7 @@ import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { CartProvider } from "@/contexts/CartContext";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -32,11 +33,13 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${poppins.variable} antialiased font-inter`}
       >
-        <Header />
-        <main>
-          {children}
-        </main>
-        <Footer />
+        <CartProvider>
+          <Header />
+          <main>
+            {children}
+          </main>
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );

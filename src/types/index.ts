@@ -44,6 +44,16 @@ export interface CartItem {
   quantity: number;
 }
 
+export interface CartContextType {
+  items: CartItem[];
+  addItem: (product: Product, quantity?: number) => void;
+  removeItem: (productId: string) => void;
+  updateQuantity: (productId: string, quantity: number) => void;
+  clearCart: () => void;
+  getTotalItems: () => number;
+  getTotalPrice: () => number;
+}
+
 export interface User {
   id: string;
   name: string;

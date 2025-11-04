@@ -1,42 +1,42 @@
+'use client';
+
 import Link from 'next/link';
+import { useCart } from '@/contexts/CartContext';
 
 export default function CartPage() {
-  // Productos mock en el carrito
-  const cartItems = [
-    {
-      id: 1,
-      name: 'Manzanas Rojas',
-      price: 2.45,
-      quantity: 2,
-      unit: 'kg',
-      image: '/images/productos-frescos.svg',
-      category: 'Frutas y Verduras'
-    },
-    {
-      id: 2,
-      name: 'Salmón Fresco',
-      price: 12.90,
-      quantity: 1,
-      unit: 'kg',
-      image: '/images/productos-frescos.svg',
-      category: 'Carnes y Pescados',
-      isOffer: true,
-      originalPrice: 15.90
-    },
-    {
-      id: 3,
-      name: 'Leche Entera',
-      price: 1.25,
-      quantity: 3,
-      unit: 'litro',
-      image: '/images/productos-frescos.svg',
-      category: 'Lácteos'
-    }
-  ];
+  const { items, updateQuantity, removeItem, getTotalPrice, clearCart } = useCart();
+  
+  const shipping = items.length > 0 ? 3.95 : 0;
+  const total = getTotalPrice() + shipping;
 
-  const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-  const shipping = 3.95;
-  const total = subtotal + shipping;
+  // Si el carrito está vacío, mostrar mensaje
+  if (items.length === 0) {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <div className="bg-teal-600 border-b border-teal-700">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <h1 className="text-4xl font-bold text-white font-poppins mb-2">
+              Mi Cesta
+            </h1>
+            <p className="text-lg text-teal-100">
+              Tu cesta está vacía
+            </p>
+          </div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+          <h2 className="text-2xl font-semibold text-gray-900 mb-2">Tu cesta está vacía</h2>
+          <p className="text-gray-600 mb-8">Parece que aún no has añadido productos a tu cesta</p>
+          <Link 
+            href="/categorias"
+            className="inline-flex items-center bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+          >
+            Empezar a comprar
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -57,21 +57,30 @@ export default function CartPage() {
       {/* Cart header */}
       <div className="bg-gradient-to-right from-teal-500 to-emerald-600 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center">
-            <div className="bg-white bg-opacity-20 backdrop-blur p-4 rounded-2xl mr-6">
-              <span className="text-4xl">🛒</span>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center">
+              <div className="bg-white bg-opacity-20 backdrop-blur p-4 rounded-2xl mr-6">
+                <span className="text-4xl">🛒</span>
+              </div>
+              <div>
+                <h1 className="text-4xl font-bold font-poppins mb-2">
+                  Mi Cesta
+                </h1>
+                <p className="text-teal-100 text-lg">
+                  {items.length} productos seleccionados
+                </p>
+                <p className="text-teal-200 text-sm mt-1">
+                  💳 Pago seguro • 🚚 Envío rápido • ↩️ Devoluciones fáciles
+                </p>
+              </div>
             </div>
-            <div>
-              <h1 className="text-4xl font-bold font-poppins mb-2">
-                Mi Cesta
-              </h1>
-              <p className="text-teal-100 text-lg">
-                {cartItems.length} productos seleccionados
-              </p>
-              <p className="text-teal-200 text-sm mt-1">
-                💳 Pago seguro • 🚚 Envío rápido • ↩️ Devoluciones fáciles
-              </p>
-            </div>
+            
+            <button
+              onClick={clearCart}
+              className="bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-4 py-2 rounded-lg transition-colors"
+            >
+              Vaciar cesta
+            </button>
           </div>
         </div>
       </div>
@@ -88,30 +97,30 @@ export default function CartPage() {
               </div>
               
               <div className="divide-y divide-gray-200">
-                {cartItems.map((item) => (
-                  <div key={item.id} className="p-6">
+                {items.map((item) => (
+                  <div key={item.product.id} className="p-6">
                     <div className="flex items-center space-x-4">
                       <img
-                        src={item.image}
-                        alt={item.name}
+                        src={item.product.image}
+                        alt={item.product.name}
                         className="h-20 w-20 object-cover rounded-lg"
                       />
                       
                       <div className="flex-1">
                         <h3 className="text-lg font-semibold text-gray-900">
-                          {item.name}
+                          {item.product.name}
                         </h3>
                         <p className="text-sm text-gray-500">
-                          {item.category} • por {item.unit}
+                          {item.product.category} • por {item.product.unit}
                         </p>
                         
                         <div className="flex items-center mt-2">
                           <span className="text-lg font-bold text-teal-600">
-                            €{item.price.toFixed(2)}
+                            €{item.product.price.toFixed(2)}
                           </span>
-                          {item.isOffer && item.originalPrice && (
+                          {item.product.originalPrice && (
                             <span className="text-sm text-gray-400 line-through ml-2">
-                              €{item.originalPrice.toFixed(2)}
+                              €{item.product.originalPrice.toFixed(2)}
                             </span>
                           )}
                         </div>
@@ -120,13 +129,19 @@ export default function CartPage() {
                       <div className="flex flex-col items-end space-y-4">
                         {/* Quantity controls */}
                         <div className="flex items-center space-x-2">
-                          <button className="p-1 rounded-full border border-gray-300 hover:bg-gray-50">
+                          <button 
+                            onClick={() => updateQuantity(item.product.id, item.quantity - 1)}
+                            className="p-1 rounded-full border border-gray-300 hover:bg-gray-50"
+                          >
                             -
                           </button>
                           <span className="w-12 text-center font-medium">
                             {item.quantity}
                           </span>
-                          <button className="p-1 rounded-full border border-gray-300 hover:bg-gray-50">
+                          <button 
+                            onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
+                            className="p-1 rounded-full border border-gray-300 hover:bg-gray-50"
+                          >
                             +
                           </button>
                         </div>
@@ -134,12 +149,15 @@ export default function CartPage() {
                         {/* Item total */}
                         <div className="text-right">
                           <p className="text-lg font-bold text-gray-900">
-                            €{(item.price * item.quantity).toFixed(2)}
+                            €{(item.product.price * item.quantity).toFixed(2)}
                           </p>
                         </div>
                         
                         {/* Remove button */}
-                        <button className="text-red-500 hover:text-red-700">
+                        <button 
+                          onClick={() => removeItem(item.product.id)}
+                          className="text-red-500 hover:text-red-700"
+                        >
                           Eliminar
                         </button>
                       </div>
@@ -160,7 +178,7 @@ export default function CartPage() {
               <div className="space-y-3">
                 <div className="flex justify-between">
                   <span className="text-gray-600">Subtotal</span>
-                  <span className="font-medium">€{subtotal.toFixed(2)}</span>
+                  <span className="font-medium">€{getTotalPrice().toFixed(2)}</span>
                 </div>
                 
                 <div className="flex justify-between">

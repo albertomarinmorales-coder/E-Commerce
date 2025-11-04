@@ -3,11 +3,13 @@
 import Link from 'next/link';
 import { Search, User, ShoppingCart, Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import { useCart } from '@/contexts/CartContext';
 
 export default function Header() {
   const [searchQuery, setSearchQuery] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const { getTotalItems } = useCart();
 
   const openMenu = () => {
     setIsMobileMenuOpen(true);
@@ -52,9 +54,11 @@ export default function Header() {
             <Link href="/cart" className="hidden md:flex flex-col items-center text-gray-600 hover:text-teal-600 relative">
               <ShoppingCart className="h-6 w-6" />
               <span className="text-xs mt-1">Cesta</span>
-              <span className="absolute -top-2 -right-2 bg-teal-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                0
-              </span>
+              {getTotalItems() > 0 && (
+                <span className="absolute -top-2 -right-2 bg-teal-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                  {getTotalItems()}
+                </span>
+              )}
             </Link>
 
             <button 
@@ -151,9 +155,11 @@ export default function Header() {
               >
                 <div className="relative">
                   <ShoppingCart className="h-5 w-5" />
-                  <span className="absolute -top-2 -right-2 bg-teal-500 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
-                    0
-                  </span>
+                  {getTotalItems() > 0 && (
+                    <span className="absolute -top-2 -right-2 bg-teal-500 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
+                      {getTotalItems()}
+                    </span>
+                  )}
                 </div>
                 <span>Mi cesta</span>
               </Link>
