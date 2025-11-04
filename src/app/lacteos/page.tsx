@@ -27,7 +27,7 @@ export default function LacteosPage() {
       name: 'Leche Entera',
       price: 1.25,
       unit: 'litro',
-      image: '/images/productos/Lacteos y quesos/leche.webp',
+      image: '/images/productos/Lacteos y quesos/leche.jpg',
       stock: 40,
       isOffer: false
     },

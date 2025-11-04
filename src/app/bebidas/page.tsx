@@ -36,7 +36,7 @@ export default function BebidasPage() {
       name: 'Coca Cola',
       price: 1.45,
       unit: 'lata 330ml',
-      image: '/images/productos/bebidas/coca-cola-2l.jpg',
+      image: '/images/productos/bebidas/cocacola.webp',
       stock: 35,
       isOffer: true,
       originalPrice: 1.65
@@ -55,7 +55,7 @@ export default function BebidasPage() {
       name: 'Cerveza Sin Alcohol',
       price: 3.85,
       unit: 'pack 6 botellas',
-      image: '/images/productos/bebidas/00118604400194____4__600x600.jpg',
+      image: '/images/productos/bebidas/cerveza.jpg',
       stock: 22,
       isOffer: false
     }
