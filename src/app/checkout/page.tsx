@@ -42,7 +42,7 @@ export default function CheckoutPage() {
       </div>
 
       {/* Checkout header */}
-      <div className="bg-gradient-to-r from-teal-500 to-emerald-600 text-white py-12">
+      <div className="bg-gradient-to-right from-teal-500 to-emerald-600 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center">
             <div className="bg-white bg-opacity-20 backdrop-blur p-4 rounded-2xl mr-6">

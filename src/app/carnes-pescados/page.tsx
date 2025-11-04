@@ -7,7 +7,7 @@ export default function CarnesPescadosPage() {
       name: 'Pechuga de Pollo',
       price: 5.95,
       unit: 'kg',
-      image: '/images/productos-frescos.svg',
+      image: '/images/productos/Carnes y Pescados/pechuga.jpg',
       stock: 25,
       isOffer: false
     },
@@ -16,7 +16,7 @@ export default function CarnesPescadosPage() {
       name: 'Salmón Fresco',
       price: 12.90,
       unit: 'kg',
-      image: '/images/productos-frescos.svg',
+      image: '/images/productos/Carnes y Pescados/salmon.jpg',
       stock: 15,
       isOffer: true,
       originalPrice: 15.90
@@ -26,7 +26,7 @@ export default function CarnesPescadosPage() {
       name: 'Ternera Premium',
       price: 18.50,
       unit: 'kg',
-      image: '/images/productos-frescos.svg',
+      image: '/images/productos/Carnes y Pescados/ternera.jpg',
       stock: 20,
       isOffer: false
     },
@@ -35,7 +35,7 @@ export default function CarnesPescadosPage() {
       name: 'Merluza Filetes',
       price: 8.75,
       unit: 'kg',
-      image: '/images/productos-frescos.svg',
+      image: '/images/productos/Carnes y Pescados/merluza.webp',
       stock: 18,
       isOffer: false
     }

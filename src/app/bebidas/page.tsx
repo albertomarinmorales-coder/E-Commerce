@@ -7,7 +7,7 @@ export default function BebidasPage() {
       name: 'Agua Mineral',
       price: 0.75,
       unit: 'botella 1.5L',
-      image: '/images/productos-frescos.svg',
+      image: '/images/productos/bebidas/45.jpg',
       stock: 50,
       isOffer: false
     },
@@ -16,7 +16,7 @@ export default function BebidasPage() {
       name: 'Coca Cola',
       price: 1.45,
       unit: 'lata 330ml',
-      image: '/images/productos-frescos.svg',
+      image: '/images/productos/bebidas/coca-cola-2l.jpg',
       stock: 35,
       isOffer: true,
       originalPrice: 1.65
@@ -26,7 +26,7 @@ export default function BebidasPage() {
       name: 'Zumo de Naranja',
       price: 2.25,
       unit: 'brick 1L',
-      image: '/images/productos-frescos.svg',
+      image: '/images/productos/bebidas/Naranja_zumo.jpg',
       stock: 28,
       isOffer: false
     },
@@ -35,7 +35,7 @@ export default function BebidasPage() {
       name: 'Cerveza Sin Alcohol',
       price: 3.85,
       unit: 'pack 6 botellas',
-      image: '/images/productos-frescos.svg',
+      image: '/images/productos/bebidas/00118604400194____4__600x600.jpg',
       stock: 22,
       isOffer: false
     }

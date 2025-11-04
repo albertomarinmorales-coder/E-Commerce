@@ -8,7 +8,7 @@ export default function FrutasVerdurasPage() {
       name: 'Manzanas Rojas',
       price: 2.45,
       unit: 'kg',
-      image: '/images/productos-frescos.svg',
+      image: '/images/productos/Frutas y Verduras/manzanas.jpg',
       stock: 50,
       isOffer: false
     },
@@ -17,7 +17,7 @@ export default function FrutasVerdurasPage() {
       name: 'Plátanos',
       price: 1.89,
       unit: 'kg',
-      image: '/images/productos-frescos.svg',
+      image: '/images/productos/Frutas y Verduras/platanos.jpg',
       stock: 30,
       isOffer: true,
       originalPrice: 2.20
@@ -27,7 +27,7 @@ export default function FrutasVerdurasPage() {
       name: 'Tomates Cherry',
       price: 3.45,
       unit: 'bandeja',
-      image: '/images/productos-frescos.svg',
+      image: '/images/productos/Frutas y Verduras/tCherry.jpg',
       stock: 25,
       isOffer: false
     },
@@ -36,7 +36,7 @@ export default function FrutasVerdurasPage() {
       name: 'Lechuga Iceberg',
       price: 1.25,
       unit: 'unidad',
-      image: '/images/productos-frescos.svg',
+      image: '/images/productos/Frutas y Verduras/lechuga.jpg',
       stock: 40,
       isOffer: false
     },
@@ -45,7 +45,7 @@ export default function FrutasVerdurasPage() {
       name: 'Naranjas',
       price: 1.95,
       unit: 'kg',
-      image: '/images/productos-frescos.svg',
+      image: '/images/productos/Frutas y Verduras/naranjas.jpg',
       stock: 60,
       isOffer: true,
       originalPrice: 2.50
@@ -55,7 +55,7 @@ export default function FrutasVerdurasPage() {
       name: 'Zanahorias',
       price: 1.15,
       unit: 'kg',
-      image: '/images/productos-frescos.svg',
+      image: '/images/productos/Frutas y Verduras/zanahorias.jpg',
       stock: 35,
       isOffer: false
     }
@@ -93,7 +93,7 @@ export default function FrutasVerdurasPage() {
       </div>
 
       {/* Category header */}
-      <div className="bg-gradient-to-r from-green-50 to-emerald-50 border-b border-green-100">
+      <div className="bg-gradient-to-right from-green-50 to-emerald-50 border-b border-green-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="flex items-center">
             <div>

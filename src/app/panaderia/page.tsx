@@ -7,7 +7,7 @@ export default function PanaderiaPage() {
       name: 'Pan de Molde',
       price: 1.85,
       unit: 'unidad',
-      image: '/images/productos-frescos.svg',
+      image: '/images/productos/Panaderia/elegir-pan-molde 1.jpg',
       stock: 30,
       isOffer: false
     },
@@ -16,7 +16,7 @@ export default function PanaderiaPage() {
       name: 'Croissants',
       price: 3.45,
       unit: 'pack 6 unidades',
-      image: '/images/productos-frescos.svg',
+      image: '/images/productos/Panaderia/croissant.jpg',
       stock: 20,
       isOffer: true,
       originalPrice: 3.95
@@ -26,7 +26,7 @@ export default function PanaderiaPage() {
       name: 'Baguette Francesa',
       price: 1.25,
       unit: 'unidad',
-      image: '/images/productos-frescos.svg',
+      image: '/images/productos/Panaderia/197769273-baguette-long-french-bread-isolated-on-white.jpg',
       stock: 25,
       isOffer: false
     },
@@ -35,7 +35,7 @@ export default function PanaderiaPage() {
       name: 'Magdalenas',
       price: 2.75,
       unit: 'pack 8 unidades',
-      image: '/images/productos-frescos.svg',
+      image: '/images/productos/Panaderia/322-h.jpg',
       stock: 15,
       isOffer: false
     }
@@ -71,7 +71,7 @@ export default function PanaderiaPage() {
         </div>
       </div>
 
-      <div className="bg-gradient-to-r from-yellow-50 to-orange-50 border-b border-yellow-100">
+      <div className="bg-gradient-to-right from-yellow-50 to-orange-50 border-b border-yellow-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="flex items-center">
             <div>

@@ -7,7 +7,7 @@ export default function LacteosPage() {
       name: 'Leche Entera',
       price: 1.25,
       unit: 'litro',
-      image: '/images/productos-frescos.svg',
+      image: '/images/productos/Lacteos y quesos/leche.webp',
       stock: 40,
       isOffer: false
     },
@@ -16,7 +16,7 @@ export default function LacteosPage() {
       name: 'Yogur Natural',
       price: 2.45,
       unit: 'pack 4 unidades',
-      image: '/images/productos-frescos.svg',
+      image: '/images/productos/Lacteos y quesos/yogur.jpg',
       stock: 30,
       isOffer: true,
       originalPrice: 2.95
@@ -26,7 +26,7 @@ export default function LacteosPage() {
       name: 'Queso Manchego',
       price: 8.90,
       unit: 'cuña 200g',
-      image: '/images/productos-frescos.svg',
+      image: '/images/productos/Lacteos y quesos/Manchego.jpg',
       stock: 15,
       isOffer: false
     },
@@ -35,7 +35,7 @@ export default function LacteosPage() {
       name: 'Mantequilla',
       price: 2.15,
       unit: '250g',
-      image: '/images/productos-frescos.svg',
+      image: '/images/productos/Lacteos y quesos/mantequilla.webp',
       stock: 25,
       isOffer: false
     }
@@ -71,7 +71,7 @@ export default function LacteosPage() {
         </div>
       </div>
 
-      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border-b border-blue-100">
+      <div className="bg-gradient-to-right from-blue-50 to-indigo-50 border-b border-blue-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="flex items-center">
             <div>

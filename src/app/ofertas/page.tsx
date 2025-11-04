@@ -8,7 +8,7 @@ export default function OfertasPage() {
       price: 1.89,
       originalPrice: 2.20,
       unit: 'kg',
-      image: '/images/productos-frescos.svg',
+      image: '/images/productos/Frutas y Verduras/platanos.jpg',
       stock: 30,
       discount: 14,
       category: 'Frutas y Verduras'
@@ -19,7 +19,7 @@ export default function OfertasPage() {
       price: 12.90,
       originalPrice: 15.90,
       unit: 'kg',
-      image: '/images/productos-frescos.svg',
+      image: '/images/productos/Carnes y Pescados/salmon.jpg',
       stock: 15,
       discount: 19,
       category: 'Carnes y Pescados'
@@ -30,7 +30,7 @@ export default function OfertasPage() {
       price: 2.45,
       originalPrice: 2.95,
       unit: 'pack 4 unidades',
-      image: '/images/productos-frescos.svg',
+      image: '/images/productos/Lacteos y quesos/yogur.jpg',
       stock: 30,
       discount: 17,
       category: 'Lácteos'
@@ -41,7 +41,7 @@ export default function OfertasPage() {
       price: 3.45,
       originalPrice: 3.95,
       unit: 'pack 6 unidades',
-      image: '/images/productos-frescos.svg',
+      image: '/images/productos/Panaderia/croissant.jpg',
       stock: 20,
       discount: 13,
       category: 'Panadería'
@@ -52,7 +52,7 @@ export default function OfertasPage() {
       price: 1.45,
       originalPrice: 1.65,
       unit: 'lata 330ml',
-      image: '/images/productos-frescos.svg',
+      image: '/images/productos/bebidas/coca-cola-2l.jpg',
       stock: 35,
       discount: 12,
       category: 'Bebidas'
@@ -63,7 +63,7 @@ export default function OfertasPage() {
       price: 1.95,
       originalPrice: 2.50,
       unit: 'kg',
-      image: '/images/productos-frescos.svg',
+      image: '/images/productos/Frutas y Verduras/naranjas.jpg',
       stock: 60,
       discount: 22,
       category: 'Frutas y Verduras'
@@ -101,7 +101,7 @@ export default function OfertasPage() {
       </div>
 
       {/* Offers header */}
-      <div className="bg-gradient-to-r from-orange-400 via-red-500 to-pink-500 text-white overflow-hidden relative">
+      <div className="bg-gradient-to-right from-orange-400 via-red-500 to-pink-500 text-white overflow-hidden relative">
         <div className="absolute inset-0 bg-black bg-opacity-10"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
           <div className="text-center">
@@ -154,7 +154,7 @@ export default function OfertasPage() {
                   alt={producto.name}
                   className="w-full h-48 object-cover rounded-t-lg"
                 />
-                <div className="absolute top-2 left-2 bg-gradient-to-r from-red-500 to-orange-500 text-white text-sm font-bold px-3 py-1 rounded-full">
+                <div className="absolute top-2 left-2 bg-gradient-to-right from-red-500 to-orange-500 text-white text-sm font-bold px-3 py-1 rounded-full">
                   -{producto.discount}%
                 </div>
                 <div className="absolute top-2 right-2 bg-white bg-opacity-90 text-gray-700 text-xs px-2 py-1 rounded">
@@ -191,7 +191,7 @@ export default function OfertasPage() {
                     {producto.stock > 10 ? 'En stock' : `¡Solo quedan ${producto.stock}!`}
                   </span>
                   
-                  <button className="bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-all transform hover:scale-105">
+                  <button className="bg-gradient-to-right from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-all transform hover:scale-105">
                     Añadir
                   </button>
                 </div>
@@ -202,7 +202,7 @@ export default function OfertasPage() {
       </div>
 
       {/* CTA section */}
-      <div className="bg-gradient-to-r from-teal-600 to-teal-700 text-white py-12">
+      <div className="bg-gradient-to-right from-teal-600 to-teal-700 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl font-bold mb-4">
             ¿No encuentras lo que buscas?
