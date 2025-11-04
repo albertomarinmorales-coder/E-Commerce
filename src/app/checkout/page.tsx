@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { FaCreditCard, FaPaypal, FaMoneyBillWave } from 'react-icons/fa';
 
 export default function CheckoutPage() {
   return (
@@ -42,12 +43,9 @@ export default function CheckoutPage() {
       </div>
 
       {/* Checkout header */}
-      <div className="bg-gradient-to-right from-teal-500 to-emerald-600 text-white py-12">
+      <div className="bg-teal-600 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center">
-            <div className="bg-white bg-opacity-20 backdrop-blur p-4 rounded-2xl mr-6">
-              <span className="text-4xl">🛍️</span>
-            </div>
             <div>
               <h1 className="text-4xl font-bold font-poppins mb-2">
                 Finalizar Compra
@@ -56,7 +54,7 @@ export default function CheckoutPage() {
                 Completa tus datos para recibir tu pedido
               </p>
               <p className="text-teal-200 text-sm mt-1">
-                🔒 Proceso seguro y encriptado
+                Proceso seguro y encriptado
               </p>
             </div>
           </div>
@@ -83,7 +81,7 @@ export default function CheckoutPage() {
                     </label>
                     <input
                       type="text"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-black placeholder-gray-600"
                       placeholder="Tu nombre completo"
                     />
                   </div>
@@ -94,7 +92,7 @@ export default function CheckoutPage() {
                     </label>
                     <input
                       type="tel"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-black placeholder-gray-600"
                       placeholder="+34 600 000 000"
                     />
                   </div>
@@ -105,7 +103,7 @@ export default function CheckoutPage() {
                     </label>
                     <input
                       type="text"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-black placeholder-gray-600"
                       placeholder="Calle, número, piso, puerta"
                     />
                   </div>
@@ -116,7 +114,7 @@ export default function CheckoutPage() {
                     </label>
                     <input
                       type="text"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-black placeholder-gray-600"
                       placeholder="Tu ciudad"
                     />
                   </div>
@@ -127,7 +125,7 @@ export default function CheckoutPage() {
                     </label>
                     <input
                       type="text"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-black placeholder-gray-600"
                       placeholder="28001"
                     />
                   </div>
@@ -147,7 +145,7 @@ export default function CheckoutPage() {
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Fecha preferida
                     </label>
-                    <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500">
+                    <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-black">
                       <option>Hoy (si pedimos antes de 14:00)</option>
                       <option>Mañana</option>
                       <option>Pasado mañana</option>
@@ -158,7 +156,7 @@ export default function CheckoutPage() {
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Franja horaria
                     </label>
-                    <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500">
+                    <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-black">
                       <option>9:00 - 12:00 (Mañana)</option>
                       <option>12:00 - 15:00 (Mediodía)</option>
                       <option>15:00 - 18:00 (Tarde)</option>
@@ -173,7 +171,7 @@ export default function CheckoutPage() {
                   </label>
                   <textarea
                     rows={3}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-black placeholder-gray-600"
                     placeholder="Instrucciones especiales para la entrega..."
                   ></textarea>
                 </div>
@@ -196,8 +194,9 @@ export default function CheckoutPage() {
                       defaultChecked
                       className="h-4 w-4 text-teal-600 focus:ring-teal-500"
                     />
-                    <label htmlFor="card" className="ml-3 block text-sm font-medium text-gray-700">
-                      💳 Tarjeta de crédito/débito
+                    <label htmlFor="card" className="ml-3 flex items-center text-sm font-medium text-gray-700">
+                      Tarjeta de crédito/débito
+                      <FaCreditCard className="ml-2 text-lg text-gray-600" />
                     </label>
                   </div>
                   
@@ -208,8 +207,9 @@ export default function CheckoutPage() {
                       type="radio"
                       className="h-4 w-4 text-teal-600 focus:ring-teal-500"
                     />
-                    <label htmlFor="paypal" className="ml-3 block text-sm font-medium text-gray-700">
-                      🟡 PayPal
+                    <label htmlFor="paypal" className="ml-3 flex items-center text-sm font-medium text-gray-700">
+                      PayPal
+                      <FaPaypal className="ml-2 text-lg text-blue-600" />
                     </label>
                   </div>
                   
@@ -220,8 +220,9 @@ export default function CheckoutPage() {
                       type="radio"
                       className="h-4 w-4 text-teal-600 focus:ring-teal-500"
                     />
-                    <label htmlFor="cash" className="ml-3 block text-sm font-medium text-gray-700">
-                      💵 Efectivo en la entrega
+                    <label htmlFor="cash" className="ml-3 flex items-center text-sm font-medium text-gray-700">
+                      Efectivo en la entrega
+                      <FaMoneyBillWave className="ml-2 text-lg text-green-600" />
                     </label>
                   </div>
                 </div>
@@ -239,19 +240,19 @@ export default function CheckoutPage() {
               <div className="space-y-3 mb-6">
                 <div className="flex justify-between">
                   <span className="text-gray-600">Subtotal (3 productos)</span>
-                  <span className="font-medium">€16.60</span>
+                  <span className="font-medium text-black">16.60€</span>
                 </div>
                 
                 <div className="flex justify-between">
                   <span className="text-gray-600">Gastos de envío</span>
-                  <span className="font-medium">€3.95</span>
+                  <span className="font-medium text-black">3.95€</span>
                 </div>
                 
                 <div className="border-t pt-3">
                   <div className="flex justify-between">
-                    <span className="text-lg font-semibold">Total</span>
-                    <span className="text-lg font-bold text-teal-600">
-                      €20.55
+                    <span className="text-lg font-semibold text-black">Total</span>
+                    <span className="text-lg font-bold text-black">
+                      20.55€
                     </span>
                   </div>
                 </div>
