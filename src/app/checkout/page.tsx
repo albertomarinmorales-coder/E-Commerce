@@ -1,7 +1,72 @@
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
 import { FaCreditCard, FaPaypal, FaMoneyBillWave } from 'react-icons/fa';
 
 export default function CheckoutPage() {
+  const [selectedPayment, setSelectedPayment] = useState('card');
+  const [formData, setFormData] = useState({
+    fullName: '',
+    phone: '',
+    address: '',
+    city: '',
+    postalCode: '',
+    deliveryDate: '',
+    deliveryTime: '',
+    comments: ''
+  });
+  const [errors, setErrors] = useState<{[key: string]: string}>({});
+
+  const validateForm = () => {
+    const newErrors: {[key: string]: string} = {};
+    
+    if (!formData.fullName.trim()) {
+      newErrors.fullName = 'El nombre completo es obligatorio';
+    }
+    if (!formData.phone.trim()) {
+      newErrors.phone = 'El teléfono es obligatorio';
+    }
+    if (!formData.address.trim()) {
+      newErrors.address = 'La dirección es obligatoria';
+    }
+    if (!formData.city.trim()) {
+      newErrors.city = 'La ciudad es obligatoria';
+    }
+    if (!formData.postalCode.trim()) {
+      newErrors.postalCode = 'El código postal es obligatorio';
+    }
+    if (!formData.deliveryDate) {
+      newErrors.deliveryDate = 'La fecha de entrega es obligatoria';
+    }
+    if (!formData.deliveryTime) {
+      newErrors.deliveryTime = 'La franja horaria es obligatoria';
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+    // Limpiar error cuando el usuario empiece a escribir
+    if (errors[field]) {
+      setErrors(prev => ({ ...prev, [field]: '' }));
+    }
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (validateForm()) {
+      // Redirigir a la página de pago
+      window.location.href = getPaymentUrl();
+    }
+  };
+
+  const getPaymentUrl = () => {
+    return `/payment?method=${selectedPayment}`;
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -15,29 +80,9 @@ export default function CheckoutPage() {
               Volver al carrito
             </Link>
             
-            {/* Progress indicator */}
-            <div className="flex items-center space-x-4">
-              <div className="flex items-center">
-                <div className="bg-teal-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium">
-                  1
-                </div>
-                <span className="ml-2 text-sm font-medium text-teal-600">Datos</span>
-              </div>
-              <div className="w-8 border-t border-gray-300"></div>
-              <div className="flex items-center">
-                <div className="bg-gray-300 text-gray-600 w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium">
-                  2
-                </div>
-                <span className="ml-2 text-sm text-gray-500">Pago</span>
-              </div>
-              <div className="w-8 border-t border-gray-300"></div>
-              <div className="flex items-center">
-                <div className="bg-gray-300 text-gray-600 w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium">
-                  3
-                </div>
-                <span className="ml-2 text-sm text-gray-500">Confirmación</span>
-              </div>
-            </div>
+            <h1 className="text-2xl font-bold text-gray-900">
+              Finalizar Compra
+            </h1>
           </div>
         </div>
       </div>
@@ -62,7 +107,8 @@ export default function CheckoutPage() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <form onSubmit={handleSubmit}>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Checkout form */}
           <div className="lg:col-span-2">
             <div className="space-y-6">
@@ -81,9 +127,14 @@ export default function CheckoutPage() {
                     </label>
                     <input
                       type="text"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-black placeholder-gray-600"
+                      value={formData.fullName}
+                      onChange={(e) => handleInputChange('fullName', e.target.value)}
+                      className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-black placeholder-gray-600 ${
+                        errors.fullName ? 'border-red-500' : 'border-gray-300'
+                      }`}
                       placeholder="Tu nombre completo"
                     />
+                    {errors.fullName && <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>}
                   </div>
                   
                   <div>
@@ -92,9 +143,14 @@ export default function CheckoutPage() {
                     </label>
                     <input
                       type="tel"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-black placeholder-gray-600"
+                      value={formData.phone}
+                      onChange={(e) => handleInputChange('phone', e.target.value)}
+                      className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-black placeholder-gray-600 ${
+                        errors.phone ? 'border-red-500' : 'border-gray-300'
+                      }`}
                       placeholder="+34 600 000 000"
                     />
+                    {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
                   </div>
                   
                   <div className="md:col-span-2">
@@ -103,9 +159,14 @@ export default function CheckoutPage() {
                     </label>
                     <input
                       type="text"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-black placeholder-gray-600"
+                      value={formData.address}
+                      onChange={(e) => handleInputChange('address', e.target.value)}
+                      className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-black placeholder-gray-600 ${
+                        errors.address ? 'border-red-500' : 'border-gray-300'
+                      }`}
                       placeholder="Calle, número, piso, puerta"
                     />
+                    {errors.address && <p className="text-red-500 text-sm mt-1">{errors.address}</p>}
                   </div>
                   
                   <div>
@@ -114,9 +175,14 @@ export default function CheckoutPage() {
                     </label>
                     <input
                       type="text"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-black placeholder-gray-600"
+                      value={formData.city}
+                      onChange={(e) => handleInputChange('city', e.target.value)}
+                      className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-black placeholder-gray-600 ${
+                        errors.city ? 'border-red-500' : 'border-gray-300'
+                      }`}
                       placeholder="Tu ciudad"
                     />
+                    {errors.city && <p className="text-red-500 text-sm mt-1">{errors.city}</p>}
                   </div>
                   
                   <div>
@@ -125,9 +191,14 @@ export default function CheckoutPage() {
                     </label>
                     <input
                       type="text"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-black placeholder-gray-600"
+                      value={formData.postalCode}
+                      onChange={(e) => handleInputChange('postalCode', e.target.value)}
+                      className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-black placeholder-gray-600 ${
+                        errors.postalCode ? 'border-red-500' : 'border-gray-300'
+                      }`}
                       placeholder="28001"
                     />
+                    {errors.postalCode && <p className="text-red-500 text-sm mt-1">{errors.postalCode}</p>}
                   </div>
                 </div>
               </div>
@@ -143,25 +214,41 @@ export default function CheckoutPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Fecha preferida
+                      Fecha preferida *
                     </label>
-                    <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-black">
-                      <option>Hoy (si pedimos antes de 14:00)</option>
-                      <option>Mañana</option>
-                      <option>Pasado mañana</option>
+                    <select 
+                      value={formData.deliveryDate}
+                      onChange={(e) => handleInputChange('deliveryDate', e.target.value)}
+                      className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-black ${
+                        errors.deliveryDate ? 'border-red-500' : 'border-gray-300'
+                      }`}
+                    >
+                      <option value="">Selecciona una fecha</option>
+                      <option value="today">Hoy (si pedimos antes de 14:00)</option>
+                      <option value="tomorrow">Mañana</option>
+                      <option value="dayAfter">Pasado mañana</option>
                     </select>
+                    {errors.deliveryDate && <p className="text-red-500 text-sm mt-1">{errors.deliveryDate}</p>}
                   </div>
                   
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Franja horaria
+                      Franja horaria *
                     </label>
-                    <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-black">
-                      <option>9:00 - 12:00 (Mañana)</option>
-                      <option>12:00 - 15:00 (Mediodía)</option>
-                      <option>15:00 - 18:00 (Tarde)</option>
-                      <option>18:00 - 21:00 (Noche)</option>
+                    <select 
+                      value={formData.deliveryTime}
+                      onChange={(e) => handleInputChange('deliveryTime', e.target.value)}
+                      className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-black ${
+                        errors.deliveryTime ? 'border-red-500' : 'border-gray-300'
+                      }`}
+                    >
+                      <option value="">Selecciona una franja</option>
+                      <option value="morning">9:00 - 12:00 (Mañana)</option>
+                      <option value="midday">12:00 - 15:00 (Mediodía)</option>
+                      <option value="afternoon">15:00 - 18:00 (Tarde)</option>
+                      <option value="evening">18:00 - 21:00 (Noche)</option>
                     </select>
+                    {errors.deliveryTime && <p className="text-red-500 text-sm mt-1">{errors.deliveryTime}</p>}
                   </div>
                 </div>
                 
@@ -171,6 +258,8 @@ export default function CheckoutPage() {
                   </label>
                   <textarea
                     rows={3}
+                    value={formData.comments}
+                    onChange={(e) => handleInputChange('comments', e.target.value)}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-black placeholder-gray-600"
                     placeholder="Instrucciones especiales para la entrega..."
                   ></textarea>
@@ -191,7 +280,9 @@ export default function CheckoutPage() {
                       id="card"
                       name="payment"
                       type="radio"
-                      defaultChecked
+                      value="card"
+                      checked={selectedPayment === 'card'}
+                      onChange={(e) => setSelectedPayment(e.target.value)}
                       className="h-4 w-4 text-teal-600 focus:ring-teal-500"
                     />
                     <label htmlFor="card" className="ml-3 flex items-center text-sm font-medium text-gray-700">
@@ -205,6 +296,9 @@ export default function CheckoutPage() {
                       id="paypal"
                       name="payment"
                       type="radio"
+                      value="paypal"
+                      checked={selectedPayment === 'paypal'}
+                      onChange={(e) => setSelectedPayment(e.target.value)}
                       className="h-4 w-4 text-teal-600 focus:ring-teal-500"
                     />
                     <label htmlFor="paypal" className="ml-3 flex items-center text-sm font-medium text-gray-700">
@@ -218,6 +312,9 @@ export default function CheckoutPage() {
                       id="cash"
                       name="payment"
                       type="radio"
+                      value="cash"
+                      checked={selectedPayment === 'cash'}
+                      onChange={(e) => setSelectedPayment(e.target.value)}
                       className="h-4 w-4 text-teal-600 focus:ring-teal-500"
                     />
                     <label htmlFor="cash" className="ml-3 flex items-center text-sm font-medium text-gray-700">
@@ -259,12 +356,12 @@ export default function CheckoutPage() {
               </div>
               
               <div className="space-y-3">
-                <Link
-                  href="/checkout/payment"
+                <button
+                  type="submit"
                   className="w-full bg-teal-600 hover:bg-teal-700 text-white py-3 px-4 rounded-lg font-medium text-center transition-colors flex items-center justify-center"
                 >
                   Continuar al pago
-                </Link>
+                </button>
                 
                 <p className="text-xs text-gray-500 text-center">
                   Al continuar, aceptas nuestros términos y condiciones
@@ -278,7 +375,8 @@ export default function CheckoutPage() {
               </div>
             </div>
           </div>
-        </div>
+          </div>
+        </form>
       </div>
     </div>
   );
