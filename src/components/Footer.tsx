@@ -1,205 +1,179 @@
 'use client';
 
 import Link from 'next/link';
+import { FaTwitter, FaFacebookF, FaInstagram } from 'react-icons/fa';
 
 export default function Footer() {
   return (
-    <footer className="bg-teal-800 text-white">
+    <footer className="bg-gradient-to-b from-teal-800 to-teal-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           
+          {/* Nombre y descripción de la página */}
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-teal-200">Cliente</h3>
-            <ul className="space-y-3">
+            <h3 className="text-2xl font-bold mb-4 text-white">FreshMarket</h3>
+            <p className="text-teal-100 mb-4 leading-relaxed">
+              Tu supermercado online de confianza. Productos frescos 
+              y de calidad directamente a tu hogar.
+            </p>
+            <p className="text-teal-200 text-sm">
+              Compra fácil, entrega rápida, calidad garantizada.
+            </p>
+          </div>
+
+          {/* Navegación rápida */}
+          <div>
+            <h4 className="text-lg font-semibold mb-4 text-teal-200">Categorías</h4>
+            <ul className="space-y-2">
               <li>
-                <Link href="/supermercados" className="text-teal-100 hover:text-white transition-colors duration-200">
-                  Nuestras tiendas
+                <Link href="/frutas-verduras" className="text-teal-100 hover:text-white transition-colors duration-200">
+                  Frutas y Verduras
                 </Link>
               </li>
               <li>
-                <Link href="/consejos" className="text-teal-100 hover:text-white transition-colors duration-200">
-                  Consejos de compra
+                <Link href="/carnes-pescados" className="text-teal-100 hover:text-white transition-colors duration-200">
+                  Carnes y Pescados
                 </Link>
               </li>
               <li>
-                <Link href="/cuenta" className="text-teal-100 hover:text-white transition-colors duration-200">
-                  Mi cuenta
+                <Link href="/bebidas" className="text-teal-100 hover:text-white transition-colors duration-200">
+                  Bebidas
                 </Link>
               </li>
               <li>
-                <Link href="/pedidos" className="text-teal-100 hover:text-white transition-colors duration-200">
-                  Mis pedidos
+                <Link href="/lacteos" className="text-teal-100 hover:text-white transition-colors duration-200">
+                  Lácteos
                 </Link>
               </li>
               <li>
-                <Link href="/devoluciones" className="text-teal-100 hover:text-white transition-colors duration-200">
-                  Devoluciones
+                <Link href="/panaderia" className="text-teal-100 hover:text-white transition-colors duration-200">
+                  Panadería
                 </Link>
               </li>
             </ul>
           </div>
 
+          {/* Información útil */}
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-teal-200">Trabajador</h3>
-            <ul className="space-y-3">
+            <h4 className="text-lg font-semibold mb-4 text-teal-200">Información</h4>
+            <ul className="space-y-2">
               <li>
-                <Link href="/trabaja-con-nosotros" className="text-teal-100 hover:text-white transition-colors duration-200">
-                  Trabaja con nosotros
+                <Link href="#" className="text-teal-100 hover:text-white transition-colors duration-200">
+                  Cómo comprar
                 </Link>
               </li>
               <li>
-                <Link href="/portal-empleado" className="text-teal-100 hover:text-white transition-colors duration-200">
-                  Portal del empleado
+                <Link href="#" className="text-teal-100 hover:text-white transition-colors duration-200">
+                  Métodos de pago
                 </Link>
               </li>
               <li>
-                <Link href="/formacion" className="text-teal-100 hover:text-white transition-colors duration-200">
-                  Formación
+                <Link href="#" className="text-teal-100 hover:text-white transition-colors duration-200">
+                  Zonas de reparto
                 </Link>
               </li>
               <li>
-                <Link href="/beneficios" className="text-teal-100 hover:text-white transition-colors duration-200">
-                  Beneficios
+                <Link href="#" className="text-teal-100 hover:text-white transition-colors duration-200">
+                  Preguntas frecuentes
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="text-teal-100 hover:text-white transition-colors duration-200">
+                  Sobre nosotros
                 </Link>
               </li>
             </ul>
           </div>
 
+          {/* Contacto y redes sociales */}
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-teal-200">Proveedor</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/portal-proveedores" className="text-teal-100 hover:text-white transition-colors duration-200">
-                  Portal de proveedores
+            <h4 className="text-lg font-semibold mb-4 text-teal-200">Contacto</h4>
+            <div className="space-y-3 mb-6">
+              <p className="text-teal-100">
+                <span className="font-medium">Email:</span><br />
+                info@freshmarket.es
+              </p>
+              <p className="text-teal-100">
+                <span className="font-medium">Teléfono:</span><br />
+                958 123 456
+              </p>
+              <p className="text-teal-100">
+                <span className="font-medium">Ubicación:</span><br />
+                Granada, España
+              </p>
+            </div>
+            
+            <div>
+              <h5 className="font-semibold text-teal-200 mb-3">Síguenos</h5>
+              <div className="flex space-x-4">
+                <Link 
+                  href="#" 
+                  className="bg-teal-700 hover:bg-black hover:scale-110 w-12 h-12 rounded-full transition-all duration-200 flex items-center justify-center text-white"
+                  title="X (Twitter)"
+                >
+                  <FaTwitter className="text-lg" />
                 </Link>
-              </li>
-              <li>
-                <Link href="/ser-proveedor" className="text-teal-100 hover:text-white transition-colors duration-200">
-                  Ser proveedor
+                <Link 
+                  href="#"
+                  className="bg-teal-700 hover:bg-blue-600 hover:scale-110 w-12 h-12 rounded-full transition-all duration-200 flex items-center justify-center text-white"
+                  title="Facebook"
+                >
+                  <FaFacebookF className="text-lg" />
                 </Link>
-              </li>
-              <li>
-                <Link href="/facturacion" className="text-teal-100 hover:text-white transition-colors duration-200">
-                  Facturación
+                <Link 
+                  href="#"
+                  className="bg-teal-700 hover:bg-gradient-to-r hover:from-purple-500 hover:via-pink-500 hover:to-orange-400 hover:scale-110 w-12 h-12 rounded-full transition-all duration-200 flex items-center justify-center text-white"
+                  title="Instagram"
+                >
+                  <FaInstagram className="text-lg" />
                 </Link>
-              </li>
-              <li>
-                <Link href="/calidad" className="text-teal-100 hover:text-white transition-colors duration-200">
-                  Política de calidad
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold mb-6 text-teal-200">Sociedad</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/actualidad" className="text-teal-100 hover:text-white transition-colors duration-200">
-                  Actualidad
-                </Link>
-              </li>
-              <li>
-                <Link href="/sala-prensa" className="text-teal-100 hover:text-white transition-colors duration-200">
-                  Sala de prensa
-                </Link>
-              </li>
-              <li>
-                <Link href="/conocenos" className="text-teal-100 hover:text-white transition-colors duration-200">
-                  Conócenos
-                </Link>
-              </li>
-              <li>
-                <Link href="/sostenibilidad" className="text-teal-100 hover:text-white transition-colors duration-200">
-                  Sostenibilidad
-                </Link>
-              </li>
-              <li>
-                <Link href="/responsabilidad-social" className="text-teal-100 hover:text-white transition-colors duration-200">
-                  Responsabilidad social
-                </Link>
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="border-t border-teal-700 mt-12 pt-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            
-            <div>
-              <h3 className="text-lg font-semibold mb-6 text-teal-200">Contacto</h3>
-              <div className="space-y-4">
-                <div className="flex items-center space-x-3">
-                  <span className="text-teal-100">958 123 123 - Atención al cliente</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <span className="text-teal-100">info@freshmarket.es</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <span className="text-teal-100">Granada</span>
-                </div>
-              </div>
+        {/* Ventajas del servicio */}
+        <div className="border-t border-teal-700 mt-8 pt-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="text-center">
+              <h5 className="font-bold text-teal-200 mb-2">Envío Gratis</h5>
+              <p className="text-teal-100 text-sm">En pedidos superiores a 50€</p>
             </div>
-
-            <div>
-              <h3 className="text-lg font-semibold mb-6 text-teal-200">Síguenos</h3>
-              <div className="flex space-x-4">
-                <Link 
-                  href="https://facebook.com/freshmarket" 
-                  className="bg-teal-700 hover:bg-teal-500 p-3 rounded-full transition-colors duration-200"
-                  aria-label="Facebook"
-                >
-                  Facebook
-                </Link>
-                <Link 
-                  href="https://twitter.com/freshmarket"
-                  className="bg-teal-700 hover:bg-teal-500 p-3 rounded-full transition-colors duration-200"
-                  aria-label="Twitter"
-                >
-                  Twitter
-                </Link>
-                <Link 
-                  href="https://instagram.com/freshmarket"
-                  className="bg-teal-700 hover:bg-teal-500 p-3 rounded-full transition-colors duration-200"
-                  aria-label="Instagram"
-                >
-                  Instagram
-                </Link>
-                <Link 
-                  href="https://youtube.com/freshmarket"
-                  className="bg-teal-700 hover:bg-teal-500 p-3 rounded-full transition-colors duration-200"
-                  aria-label="YouTube"
-                >
-                  YouTube
-                </Link>
-              </div>
+            <div className="text-center">
+              <h5 className="font-bold text-teal-200 mb-2">Productos Frescos</h5>
+              <p className="text-teal-100 text-sm">Seleccionados diariamente</p>
+            </div>
+            <div className="text-center">
+              <h5 className="font-bold text-teal-200 mb-2">Satisfacción Garantizada</h5>
+              <p className="text-teal-100 text-sm">Devolución fácil y rápida</p>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="bg-teal-900 py-6">
+      {/* Copyright y enlaces legales */}
+      <div className="bg-teal-900 py-6 border-t border-teal-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             
             <div className="text-center md:text-left">
               <p className="text-teal-200 text-sm">
-                © 2025 FreshMarket S.A. A12345678. Todos los derechos reservados.
+                © 2025 FreshMarket • Proyecto Demo para Portfolio • Desarrollado con Next.js
               </p>
             </div>
 
-            <div className="flex flex-wrap justify-center md:justify-end space-x-6 text-sm">
-              <Link href="/accesibilidad" className="text-teal-200 hover:text-white transition-colors duration-200">
-                Accesibilidad
+            <div className="flex flex-wrap justify-center gap-6 text-sm">
+              <Link href="#" className="text-teal-200 hover:text-white hover:underline transition-all duration-200">
+                Política de Privacidad
               </Link>
-              <Link href="/privacidad" className="text-teal-200 hover:text-white transition-colors duration-200">
-                Política de privacidad
+              <Link href="#" className="text-teal-200 hover:text-white hover:underline transition-all duration-200">
+                Política de Cookies
               </Link>
-              <Link href="/cookies" className="text-teal-200 hover:text-white transition-colors duration-200">
-                Política de cookies
+              <Link href="#" className="text-teal-200 hover:text-white hover:underline transition-all duration-200">
+                Términos y Condiciones
               </Link>
-              <Link href="/terminos" className="text-teal-200 hover:text-white transition-colors duration-200">
-                Términos y condiciones
+              <Link href="#" className="text-teal-200 hover:text-white hover:underline transition-all duration-200">
+                Código Fuente
               </Link>
             </div>
           </div>
