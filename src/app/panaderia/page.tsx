@@ -159,7 +159,7 @@ export default function PanaderiaPage() {
                   
                   <button 
                     onClick={() => addItem(convertToProduct(producto))}
-                    className="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95"
+                    className="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95 cursor-pointer"
                   >
                     Añadir
                   </button>

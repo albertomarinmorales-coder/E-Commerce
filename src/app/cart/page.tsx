@@ -29,7 +29,7 @@ export default function CartPage() {
           <p className="text-gray-600 mb-8">Parece que aún no has añadido productos a tu cesta</p>
           <Link 
             href="/categorias"
-            className="inline-flex items-center bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+            className="inline-flex items-center bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-lg font-medium transition-colors cursor-pointer"
           >
             Empezar a comprar
           </Link>
@@ -40,44 +40,25 @@ export default function CartPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <div className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex items-center space-x-4">
-            <Link 
-              href="/"
-              className="flex items-center text-gray-600 hover:text-teal-600"
-            >
-              Seguir comprando
-            </Link>
-          </div>
-        </div>
-      </div>
-
       {/* Cart header */}
-      <div className="bg-gradient-to-right from-teal-500 to-emerald-600 text-white py-12">
+      <div className="bg-teal-600 border-b border-teal-700 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <div className="bg-white bg-opacity-20 backdrop-blur p-4 rounded-2xl mr-6">
-                <span className="text-4xl">🛒</span>
-              </div>
-              <div>
-                <h1 className="text-4xl font-bold font-poppins mb-2">
-                  Mi Cesta
-                </h1>
-                <p className="text-teal-100 text-lg">
-                  {items.length} productos seleccionados
-                </p>
-                <p className="text-teal-200 text-sm mt-1">
-                  💳 Pago seguro • 🚚 Envío rápido • ↩️ Devoluciones fáciles
-                </p>
-              </div>
+            <div>
+              <h1 className="text-4xl font-bold text-white font-poppins mb-2">
+                Mi Cesta
+              </h1>
+              <p className="text-teal-100 text-lg">
+                {items.length} productos seleccionados
+              </p>
+              <p className="text-teal-100 text-sm mt-1">
+                Pago seguro • Envío rápido • Devoluciones fáciles
+              </p>
             </div>
             
             <button
               onClick={clearCart}
-              className="bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-4 py-2 rounded-lg transition-colors"
+              className="bg-teal-500 hover:bg-teal-400 text-white px-4 py-2 rounded-lg transition-colors cursor-pointer"
             >
               Vaciar cesta
             </button>
@@ -131,16 +112,16 @@ export default function CartPage() {
                         <div className="flex items-center space-x-2">
                           <button 
                             onClick={() => updateQuantity(item.product.id, item.quantity - 1)}
-                            className="p-1 rounded-full border border-gray-300 hover:bg-gray-50"
+                            className="w-8 h-8 flex items-center justify-center rounded-full bg-teal-500 hover:bg-teal-600 text-white font-semibold transition-colors cursor-pointer"
                           >
                             -
                           </button>
-                          <span className="w-12 text-center font-medium">
+                          <span className="w-12 text-center font-medium text-black">
                             {item.quantity}
                           </span>
                           <button 
                             onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
-                            className="p-1 rounded-full border border-gray-300 hover:bg-gray-50"
+                            className="w-8 h-8 flex items-center justify-center rounded-full bg-teal-500 hover:bg-teal-600 text-white font-semibold transition-colors cursor-pointer"
                           >
                             +
                           </button>
@@ -156,7 +137,7 @@ export default function CartPage() {
                         {/* Remove button */}
                         <button 
                           onClick={() => removeItem(item.product.id)}
-                          className="text-red-500 hover:text-red-700"
+                          className="text-red-500 hover:text-red-700 cursor-pointer"
                         >
                           Eliminar
                         </button>
@@ -178,18 +159,18 @@ export default function CartPage() {
               <div className="space-y-3">
                 <div className="flex justify-between">
                   <span className="text-gray-600">Subtotal</span>
-                  <span className="font-medium">€{getTotalPrice().toFixed(2)}</span>
+                  <span className="font-medium text-black">€{getTotalPrice().toFixed(2)}</span>
                 </div>
                 
                 <div className="flex justify-between">
                   <span className="text-gray-600">Gastos de envío</span>
-                  <span className="font-medium">€{shipping.toFixed(2)}</span>
+                  <span className="font-medium text-black">€{shipping.toFixed(2)}</span>
                 </div>
                 
                 <div className="border-t pt-3">
                   <div className="flex justify-between">
                     <span className="text-lg font-semibold">Total</span>
-                    <span className="text-lg font-bold text-teal-600">
+                    <span className="text-lg font-bold text-black">
                       €{total.toFixed(2)}
                     </span>
                   </div>
@@ -199,14 +180,14 @@ export default function CartPage() {
               <div className="mt-6 space-y-3">
                 <Link
                   href="/checkout"
-                  className="w-full bg-teal-600 hover:bg-teal-700 text-white py-3 px-4 rounded-lg font-medium text-center transition-colors flex items-center justify-center"
+                  className="w-full bg-teal-600 hover:bg-teal-700 text-white py-3 px-4 rounded-lg font-medium text-center transition-colors flex items-center justify-center cursor-pointer"
                 >
                   Finalizar compra
                 </Link>
                 
                 <Link
                   href="/categorias"
-                  className="w-full border border-gray-300 text-gray-700 hover:bg-gray-50 py-3 px-4 rounded-lg font-medium text-center transition-colors block"
+                  className="w-full border border-gray-300 text-gray-700 hover:bg-gray-50 py-3 px-4 rounded-lg font-medium text-center transition-colors block cursor-pointer"
                 >
                   Seguir comprando
                 </Link>
@@ -214,7 +195,7 @@ export default function CartPage() {
               
               <div className="mt-6 text-center">
                 <p className="text-sm text-gray-500">
-                  🚚 Envío gratis en pedidos superiores a €50
+                  Envío gratis en pedidos superiores a €50
                 </p>
               </div>
             </div>
