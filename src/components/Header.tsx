@@ -2,14 +2,76 @@
 
 import Link from 'next/link';
 import { Search, User, ShoppingCart, Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { useRouter } from 'next/navigation';
 import { useCart } from '@/contexts/CartContext';
+import { searchProducts, ProductData } from '@/data/products';
+import { useDebounce } from '@/hooks/useDebounce';
 
 export default function Header() {
   const [searchQuery, setSearchQuery] = useState('');
+  const [suggestions, setSuggestions] = useState<ProductData[]>([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const { getTotalItems } = useCart();
+  const router = useRouter();
+  const debouncedSearchQuery = useDebounce(searchQuery, 300);
+  const searchRef = useRef<HTMLDivElement>(null);
+
+  // Buscar sugerencias cuando cambie el query con debounce
+  useEffect(() => {
+    if (debouncedSearchQuery.trim().length >= 2) {
+      const results = searchProducts(debouncedSearchQuery).slice(0, 5); // Máximo 5 sugerencias
+      setSuggestions(results);
+      setShowSuggestions(true);
+    } else {
+      setSuggestions([]);
+      setShowSuggestions(false);
+    }
+  }, [debouncedSearchQuery]);
+
+  // Cerrar sugerencias al hacer clic fuera
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+        setShowSuggestions(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      router.push(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+      setSearchQuery('');
+      setShowSuggestions(false);
+      // Cerrar menú móvil si está abierto
+      if (isMobileMenuOpen) {
+        closeMenu();
+      }
+    }
+  };
+
+  const handleSuggestionClick = (productName: string) => {
+    setSearchQuery(productName);
+    setShowSuggestions(false);
+    router.push(`/search?q=${encodeURIComponent(productName)}`);
+  };
+
+  const handleSearchInputKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      handleSearch(e as any);
+    }
+    if (e.key === 'Escape') {
+      setShowSuggestions(false);
+    }
+  };
 
   const openMenu = () => {
     setIsMobileMenuOpen(true);
@@ -35,18 +97,62 @@ export default function Header() {
             </div>
           </Link>
 
-          <div className="hidden md:flex flex-1 max-w-2xl mx-8">
+          <div className="hidden md:flex flex-1 max-w-2xl mx-8" ref={searchRef}>
             <div className="relative w-full">
-              <input
-                type="text"
-                placeholder="¿Qué necesitas hoy?"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent placeholder-gray-500 text-gray-900"
-              />
-              <button className="absolute right-3 top-1/2 transform -translate-y-1/2">
-                <Search className="h-5 w-5 text-gray-400" />
-              </button>
+              <form onSubmit={handleSearch} className="relative w-full">
+                <input
+                  type="text"
+                  placeholder="¿Qué necesitas hoy?"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyPress={handleSearchInputKeyPress}
+                  onFocus={() => searchQuery.length >= 2 && setShowSuggestions(true)}
+                  className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent placeholder-gray-500 text-gray-900"
+                />
+                <button 
+                  type="submit"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 hover:text-teal-600 transition-colors"
+                >
+                  <Search className="h-5 w-5 text-gray-400" />
+                </button>
+              </form>
+
+              {/* Sugerencias */}
+              {showSuggestions && suggestions.length > 0 && (
+                <div className="absolute top-full left-0 right-0 bg-white border border-gray-300 rounded-lg shadow-lg mt-1 z-50">
+                  {suggestions.map((product) => (
+                    <button
+                      key={product.id}
+                      onClick={() => handleSuggestionClick(product.name)}
+                      className="w-full px-4 py-3 text-left hover:bg-gray-50 flex items-center space-x-3 border-b border-gray-100 last:border-b-0"
+                    >
+                      <img 
+                        src={product.image} 
+                        alt={product.name}
+                        className="w-10 h-10 object-cover rounded"
+                      />
+                      <div className="flex-1">
+                        <p className="text-sm font-medium text-gray-900">{product.name}</p>
+                        <p className="text-xs text-gray-500">{product.category}</p>
+                      </div>
+                      <p className="text-sm font-bold text-teal-600">{product.price}€</p>
+                    </button>
+                  ))}
+                  {searchQuery.trim() && (
+                    <button
+                      onClick={() => handleSearch({ preventDefault: () => {} } as any)}
+                      className="w-full px-4 py-3 text-left hover:bg-teal-50 border-t border-gray-200"
+                    >
+                      <div className="flex items-center space-x-2 text-teal-600">
+                        <Search className="h-4 w-4" />
+                        <span className="text-sm font-medium">
+                          Ver todos los resultados para "{searchQuery}"
+                        </span>
+                      </div>
+                    </button>
+                  )}
+                </div>
+              )}
             </div>
           </div>
 
@@ -126,18 +232,22 @@ export default function Header() {
             </div>
             
             <div className="p-4 space-y-4">
-              <div className="relative">
+              <form onSubmit={handleSearch} className="relative w-full mb-6">
                 <input
                   type="text"
                   placeholder="¿Qué necesitas hoy?"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyPress={handleSearchInputKeyPress}
                   className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent placeholder-gray-500 text-gray-900"
                 />
-                <button className="absolute right-3 top-1/2 transform -translate-y-1/2">
+                <button 
+                  type="submit"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 hover:text-teal-600 transition-colors"
+                >
                   <Search className="h-5 w-5 text-gray-400" />
                 </button>
-              </div>
+              </form>
 
               <Link 
                 href="/account" 

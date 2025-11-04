@@ -172,9 +172,6 @@ export default function Footer() {
               <Link href="#" className="text-teal-200 hover:text-white hover:underline transition-all duration-200">
                 Términos y Condiciones
               </Link>
-              <Link href="#" className="text-teal-200 hover:text-white hover:underline transition-all duration-200">
-                Código Fuente
-              </Link>
             </div>
           </div>
         </div>
