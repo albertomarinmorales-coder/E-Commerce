@@ -1,11 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { FaCreditCard, FaPaypal, FaMoneyBillWave, FaLock, FaCheckCircle } from 'react-icons/fa';
 
-export default function PaymentPage() {
+function PaymentContent() {
   const searchParams = useSearchParams();
   const paymentMethod = searchParams.get('method') || 'card';
   const [isProcessing, setIsProcessing] = useState(false);
@@ -362,5 +362,26 @@ export default function PaymentPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+// Loading component para Suspense
+function PaymentLoading() {
+  return (
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="text-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-600 mx-auto mb-4"></div>
+        <p className="text-gray-600">Cargando página de pago...</p>
+      </div>
+    </div>
+  );
+}
+
+// Componente principal con Suspense boundary
+export default function PaymentPage() {
+  return (
+    <Suspense fallback={<PaymentLoading />}>
+      <PaymentContent />
+    </Suspense>
   );
 }

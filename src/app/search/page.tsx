@@ -1,13 +1,13 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import { searchProducts, ProductData } from '@/data/products';
 import { useCart } from '@/contexts/CartContext';
 
-export default function SearchPage() {
+function SearchContent() {
   const searchParams = useSearchParams();
   const query = searchParams.get('q') || '';
   const [searchResults, setSearchResults] = useState<ProductData[]>([]);
@@ -220,5 +220,33 @@ export default function SearchPage() {
         )}
       </div>
     </div>
+  );
+}
+
+// Loading component para Suspense
+function SearchLoading() {
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <div className="bg-teal-600 text-white py-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-3xl font-bold font-poppins">Buscando...</h1>
+        </div>
+      </div>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Cargando resultados de búsqueda...</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Componente principal con Suspense boundary
+export default function SearchPage() {
+  return (
+    <Suspense fallback={<SearchLoading />}>
+      <SearchContent />
+    </Suspense>
   );
 }
